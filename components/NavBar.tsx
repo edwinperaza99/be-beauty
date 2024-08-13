@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 export default function NavBar() {
 	return (
@@ -10,13 +11,13 @@ export default function NavBar() {
 				<Image src="/logo.png" alt="Be Beauty" width={100} height={100} />
 				<ul className="flex justify-between">
 					<li className="mr-8">
-						<a href="/">Shop</a>
+						<Link href="/">Home</Link>
 					</li>
 					<li className="mr-8">
 						<a href="/products">Products</a>
 					</li>
 					<li className="mr-8">
-						<a href="/about">About</a>
+						<Link href="/about">About</Link>
 					</li>
 					<li className="mr-8">
 						<a href="/contact">Contact</a>

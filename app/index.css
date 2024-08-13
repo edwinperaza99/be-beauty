@@ -1,0 +1,10 @@
+/* add image as background */
+.landing-bg {
+	background-image: url("https://images.pexels.com/photos/973401/pexels-photo-973401.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2");
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	height: 500px;
+	width: 100%;
+	position: relative;
+}
