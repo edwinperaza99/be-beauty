@@ -1,10 +1,24 @@
 /* add image as background */
 .landing-bg {
-	background-image: url("https://images.pexels.com/photos/973401/pexels-photo-973401.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2");
+	background-image: url("https://images.pexels.com/photos/413885/pexels-photo-413885.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2");
 	background-size: cover;
 	background-position: center;
 	background-repeat: no-repeat;
-	height: 500px;
+	height: 100dvh;
 	width: 100%;
 	position: relative;
+	/* align-items: center; */
+	justify-content: center;
+}
+
+/* styles for navbar  */
+#navbar {
+	background-color: rgba(0, 0, 0, 0.3);
+	color: white;
+	position: fixed;
+	width: 100%;
+	height: auto;
+	z-index: 1000;
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
 }
