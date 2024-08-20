@@ -1,10 +1,14 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Libre_Baskerville } from "next/font/google";
 import "./globals.css";
 import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
 
 const inter = Inter({ subsets: ["latin"] });
+const libreBaskerville = Libre_Baskerville({
+	weight: "400",
+	subsets: ["latin"],
+});
 
 export const metadata: Metadata = {
 	title: "Be Beauty",
@@ -17,7 +21,7 @@ export default function RootLayout({
 	children: React.ReactNode;
 }>) {
 	return (
-		<html lang="en">
+		<html lang="en" className={libreBaskerville.className}>
 			<body className="">
 				<div className="min-h-[calc(100vh-80px)]">
 					<NavBar />
