@@ -1,5 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
+import { Roboto } from "next/font/google";
+
+const roboto = Roboto({ weight: "900", subsets: ["latin"] });
 
 export default function NavBar() {
 	return (
@@ -9,10 +12,10 @@ export default function NavBar() {
 				id="navbar"
 			>
 				{/* <Image src="/logo.png" alt="Be Beauty" width={100} height={100} /> */}
-				<div className="justify-start ml-2">
+				<a href="#start" className={(roboto.className, "justify-start ml-4")}>
 					<h1 className="text-4xl">NATALIA</h1>
 					<h2>SALON & BEAUTY SUPPLY</h2>
-				</div>
+				</a>
 				<ul className="flex justify-center">
 					<li>
 						<Link href="/" className="p-4 hover:text-green-300">
@@ -30,7 +33,7 @@ export default function NavBar() {
 						</Link>
 					</li>
 				</ul>
-				<ul className="flex gap-2 justify-end mr-1">
+				<ul className="flex gap-2 justify-end mr-4">
 					<li>
 						<a href="" className="p-2">
 							<svg
@@ -43,7 +46,7 @@ export default function NavBar() {
 								stroke-width="2"
 								stroke-linecap="round"
 								stroke-linejoin="round"
-								className="icon icon-tabler icons-tabler-outline icon-tabler-brand-instagram"
+								className="icon icon-tabler icons-tabler-outline icon-tabler-brand-instagram hover:text-green-300"
 							>
 								<path stroke="none" d="M0 0h24v24H0z" fill="none" />
 								<path d="M4 4m0 4a4 4 0 0 1 4 -4h8a4 4 0 0 1 4 4v8a4 4 0 0 1 -4 4h-8a4 4 0 0 1 -4 -4z" />
@@ -64,7 +67,7 @@ export default function NavBar() {
 								stroke-width="2"
 								stroke-linecap="round"
 								stroke-linejoin="round"
-								className="icon icon-tabler icons-tabler-outline icon-tabler-brand-facebook"
+								className="icon icon-tabler icons-tabler-outline icon-tabler-brand-facebook hover:text-green-300"
 							>
 								<path stroke="none" d="M0 0h24v24H0z" fill="none" />
 								<path d="M7 10v4h3v7h4v-7h3l1 -4h-4v-2a1 1 0 0 1 1 -1h3v-4h-3a5 5 0 0 0 -5 5v2h-3" />
@@ -83,7 +86,7 @@ export default function NavBar() {
 								stroke-width="2"
 								stroke-linecap="round"
 								stroke-linejoin="round"
-								className="icon icon-tabler icons-tabler-outline icon-tabler-brand-whatsapp"
+								className="icon icon-tabler icons-tabler-outline icon-tabler-brand-whatsapp hover:text-green-300"
 							>
 								<path stroke="none" d="M0 0h24v24H0z" fill="none" />
 								<path d="M3 21l1.65 -3.8a9 9 0 1 1 3.4 2.9l-5.05 .9" />

@@ -1,3 +1,8 @@
+*,
+html {
+	scroll-behavior: smooth;
+}
+
 /* add image as background */
 .landing-bg {
 	background-image: url("https://images.pexels.com/photos/413885/pexels-photo-413885.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2");
@@ -11,6 +16,21 @@
 	justify-content: center;
 }
 
+.hero {
+	display: flex;
+	flex-direction: column;
+	min-width: 800px;
+	margin: 0 auto;
+	gap: 0.5em;
+}
+
+@media (max-width: 850px) {
+	.hero {
+		margin: 0 20px;
+		font-size: 0.6rem;
+	}
+}
+
 /* styles for navbar  */
 #navbar {
 	background-color: rgba(0, 0, 0, 0.3);
@@ -21,4 +41,9 @@
 	z-index: 1000;
 	display: grid;
 	grid-template-columns: 1fr 1fr 1fr;
+}
+
+#services {
+	max-width: 800px;
+	margin: 0 auto;
 }
