@@ -2,6 +2,7 @@ import "./index.css";
 import Image from "next/image";
 import Link from "next/link";
 import { Licorice } from "next/font/google";
+import salon_inside from "../public/salon_inside.jpg";
 
 const licorice = Licorice({ weight: "400", subsets: ["latin"] });
 
@@ -29,7 +30,7 @@ export default function Home() {
 					id="services"
 					className="flex flex-col justify-center py-16 gap-4"
 				>
-					<h2 className="text-center text-4xl">SERVICES</h2>
+					<h2 className="text-center text-4xl">SERVICIOS</h2>
 					<p className="text-center">
 						Exercitation qui laboris mollit eiusmod officia cupidatat ipsum
 						commodo laboris dolore eiusmod. Labore in irure magna occaecat sunt
@@ -70,14 +71,20 @@ export default function Home() {
 						</div>
 					</article>
 					<div className="flex justify-center">
-						<Link href="" className="py-2 px-4 bg-green-400 text-white">
+						<Link href="" className="py-2 px-8 bg-green-400 text-white">
 							Mas
 						</Link>
 					</div>
 				</section>
-				<section className="phrase-section bg-green-800">
-					<Image src="" alt="" width={300} height={300} />
-					<p className="text-5xl text-center">Be Beauty, Be You</p>
+				<section className="phrase-section bg-green-800 flex justify-center align-middle">
+					<Image
+						src={salon_inside}
+						alt=""
+						width={300}
+						height={300}
+						className="z-10"
+					/>
+					<p className="text-5xl text-center z-20">Be Beauty, Be You</p>
 				</section>
 				<section id="brands">
 					<h2 className="text-4xl text-center">NUESTRAS MARCAS</h2>
