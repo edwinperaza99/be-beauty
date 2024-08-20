@@ -16,22 +16,17 @@ export default function NavBar() {
 				<ul className="flex justify-center">
 					<li>
 						<Link href="/" className="p-4 hover:text-green-300">
-							Home
+							Servicios
 						</Link>
 					</li>
 					<li>
 						<Link href="/products" className="p-4 hover:text-green-300">
-							Products
+							Productos
 						</Link>
 					</li>
 					<li>
 						<Link href="/about" className="p-4 hover:text-green-300">
-							About
-						</Link>
-					</li>
-					<li>
-						<Link href="/contact" className="p-4 hover:text-green-300">
-							Contact
+							Staff
 						</Link>
 					</li>
 				</ul>
