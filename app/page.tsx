@@ -25,7 +25,10 @@ export default function Home() {
 						</div>
 					</div>
 				</section>
-				<section id="services" className="flex flex-col justify-center">
+				<section
+					id="services"
+					className="flex flex-col justify-center py-16 gap-4"
+				>
 					<h2 className="text-center text-4xl">SERVICES</h2>
 					<p className="text-center">
 						Exercitation qui laboris mollit eiusmod officia cupidatat ipsum
