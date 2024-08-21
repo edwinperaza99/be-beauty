@@ -2,25 +2,25 @@ import "./index.css";
 import Image from "next/image";
 import Link from "next/link";
 import { Licorice } from "next/font/google";
-import salon_inside from "../public/salon_inside.jpg";
+import salon_inside from "../public/salon.jpg";
 
 const licorice = Licorice({ weight: "400", subsets: ["latin"] });
 
 export default function Home() {
 	return (
 		<>
-			<main className="" id="start">
+			<main className="overflow-hidden" id="start">
 				<section
 					className="flex flex-col justify-center landing-bg gap-2 mx-auto my-0"
 					id="landing"
 				>
 					<div className="hero">
-						<p className="text-4xl">Es mas que cabello,</p>
+						<p className="text-4xl">Es más que cabello,</p>
 						<p className="text-4xl">
 							Es un <span className={licorice.className}>sentimiento</span>
 						</p>
 						<div>
-							<a href="" className="p-2 text-white bg-green-400">
+							<a href="" className="p-2 text-white bg-[#CCD580]">
 								Haz tu cita
 							</a>
 						</div>
@@ -47,7 +47,7 @@ export default function Home() {
 								height={300}
 								className="p-4"
 							/>
-							<h3 className="text-center">Color</h3>
+							<h3 className="text-xl text-center font-black">Color</h3>
 						</div>
 						<div>
 							<Image
@@ -57,7 +57,7 @@ export default function Home() {
 								height={300}
 								className="p-4"
 							/>
-							<h3 className="text-center">Uñas</h3>
+							<h3 className="text-xl text-center font-black">Uñas</h3>
 						</div>
 						<div>
 							<Image
@@ -67,26 +67,33 @@ export default function Home() {
 								height={300}
 								className="p-4"
 							/>
-							<h3 className="text-center">Corte</h3>
+							<h3 className="text-xl text-center font-black">Corte</h3>
 						</div>
 					</article>
 					<div className="flex justify-center">
-						<Link href="" className="py-2 px-8 bg-green-400 text-white">
+						<Link href="" className="py-2 px-8 bg-[#CCD580] text-white">
 							Mas
 						</Link>
 					</div>
 				</section>
-				<section className="phrase-section bg-green-800 flex justify-center align-middle">
+				<section className="phrase-section bg-[#242921] flex justify-center items-center relative w-full h-[650px]">
+					{/* <div className="p-4 z-0 max-w-[800px] h-[300px]"> */}
 					<Image
 						src={salon_inside}
+						// src="../public/salon_inside.jpg"
 						alt=""
-						width={300}
-						height={300}
-						className="z-10"
+						// layout="fill"
+						// objectFit="cover"
+						// height={450}
+						width={800}
+						className="absolute z-0 opacity-80 phrase-section-image"
 					/>
-					<p className="text-5xl text-center z-20">Be Beauty, Be You</p>
+					{/* </div> */}
+					<p className="absolute text-5xl text-center place-content-center z-10 text-[#CCD580]">
+						Be Beauty, Be You
+					</p>
 				</section>
-				<section id="brands">
+				{/* <section id="brands">
 					<h2 className="text-4xl text-center">NUESTRAS MARCAS</h2>
 					<article className="grid grid-cols-3">
 						<Image src="/brand1.jpg" alt="Brand 1" width={300} height={300} />
@@ -100,7 +107,7 @@ export default function Home() {
 				<section id="contact" className="bg-green-900">
 					<h2 className="text-4xl">Contactanos</h2>
 					<div className="flex"></div>
-				</section>
+				</section> */}
 			</main>
 		</>
 	);
