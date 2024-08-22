@@ -8,13 +8,14 @@ export default function NavBar() {
 	return (
 		<header>
 			<nav
-				className="flex flex-row items-center justify-between py-4"
+				// className="flex flex-row items-center justify-between py-4"
+				className="grid grid-cols-2 md:grid-cols-3 items-center justify-between py-4"
 				id="navbar"
 			>
 				{/* <Image src="/logo.png" alt="Be Beauty" width={100} height={100} /> */}
 				<a href="#start" className={(roboto.className, "justify-start ml-4")}>
-					<h1 className="text-4xl">NATALIA</h1>
-					<h2>SALON & BEAUTY SUPPLY</h2>
+					<h1 className="text-xl md:text-4xl">NATALIA</h1>
+					<h2 className="text-sm md:text-md">SALON & BEAUTY SUPPLY</h2>
 				</a>
 				<ul className="flex justify-center">
 					<li>
