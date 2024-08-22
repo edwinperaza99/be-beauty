@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Licorice } from "next/font/google";
 import salon_inside from "../public/salon.jpg";
+import { Contactanos } from "@/components/Contactanos";
 
 const licorice = Licorice({ weight: "400", subsets: ["latin"] });
 
@@ -92,6 +93,9 @@ export default function Home() {
 					<p className="absolute text-5xl text-center place-content-center z-10 text-[#CCD580]">
 						Be Beauty, Be You
 					</p>
+				</section>
+				<section>
+					<Contactanos />
 				</section>
 				{/* <section id="brands">
 					<h2 className="text-4xl text-center">NUESTRAS MARCAS</h2>
