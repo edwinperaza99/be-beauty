@@ -94,8 +94,22 @@ export default function Home() {
 						Be Beauty, Be You
 					</p>
 				</section>
-				<section>
-					<Contactanos />
+				<div className="divider"></div>
+				<section id="contactanos">
+					<article className="flex gap-8 space-between items-center contactanos">
+						<div className="contact-image-container">
+							<Image
+								src="https://images.pexels.com/photos/3993453/pexels-photo-3993453.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+								alt="Corte de pelo"
+								height={300}
+								width={300}
+								// fill
+								// objectFit="cover"
+								className=""
+							/>
+						</div>
+						<Contactanos />
+					</article>
 				</section>
 				{/* <section id="brands">
 					<h2 className="text-4xl text-center">NUESTRAS MARCAS</h2>

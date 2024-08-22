@@ -48,6 +48,17 @@ html {
 	margin: 0 auto;
 }
 
+#contactanos {
+	background-color: #242921;
+	color: white;
+	padding: 50px 0;
+}
+
+.contactanos {
+	max-width: 800px;
+	margin: 0 auto;
+}
+
 .phrase-section-image {
 	object-fit: cover;
 	/* width: 100%; */
@@ -55,4 +66,18 @@ html {
 	max-width: 100%;
 	opacity: 0.2;
 	object-position: center;
+}
+
+.contact-image-container {
+	width: 300px;
+	/* height: 500px; */
+	position: relative;
+	border-top-left-radius: 45%;
+	border-top-right-radius: 45%;
+	overflow: hidden;
+}
+
+.divider {
+	height: 70px;
+	background-color: #000;
 }
