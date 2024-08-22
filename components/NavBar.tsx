@@ -13,23 +13,23 @@ export default function NavBar() {
 				id="navbar"
 			>
 				{/* <Image src="/logo.png" alt="Be Beauty" width={100} height={100} /> */}
-				<a href="#start" className={(roboto.className, "justify-start ml-4")}>
+				<a href="/#start" className={(roboto.className, "justify-start ml-4")}>
 					<h1 className="text-xl md:text-4xl">NATALIA</h1>
 					<h2 className="text-sm md:text-md">SALON & BEAUTY SUPPLY</h2>
 				</a>
 				<ul className="flex justify-center">
 					<li>
-						<Link href="/" className="p-4 hover:text-green-300">
+						<Link href="/servicios" className="p-4 hover:text-green-300">
 							Servicios
 						</Link>
 					</li>
 					<li>
-						<Link href="/products" className="p-4 hover:text-green-300">
+						<Link href="/productos" className="p-4 hover:text-green-300">
 							Productos
 						</Link>
 					</li>
 					<li>
-						<Link href="/about" className="p-4 hover:text-green-300">
+						<Link href="/staff" className="p-4 hover:text-green-300">
 							Staff
 						</Link>
 					</li>
