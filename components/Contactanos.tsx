@@ -19,7 +19,16 @@ export function Contactanos() {
 			<AccordionItem value="item-3">
 				<AccordionTrigger>Horas</AccordionTrigger>
 				<AccordionContent>
-					Estamos abiertos de lunes a viernes de 9am a 5pm.
+					<ul>
+						<li>Lunes - Sábado: 7:00 AM - 7:00 PM</li>
+						{/* <li>Lunes: 9am - 5pm</li>
+                        <li>Martes: 9am - 5pm</li>
+                        <li>Miércoles: 9am - 5pm</li>
+                        <li>Jueves: 9am - 5pm</li>
+                        <li>Viernes: 9am - 5pm</li>
+                        <li>Sábado: 9am - 5pm</li> */}
+						<li>Domingo: 9:00 AM - 5:00 PM</li>
+					</ul>
 				</AccordionContent>
 			</AccordionItem>
 		</Accordion>
