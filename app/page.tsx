@@ -32,13 +32,18 @@ export default function Home() {
 					className="flex flex-col justify-center py-16 gap-4"
 				>
 					<h2 className="text-center text-4xl">SERVICIOS</h2>
-					<p className="text-center">
-						Exercitation qui laboris mollit eiusmod officia cupidatat ipsum
-						commodo laboris dolore eiusmod. Labore in irure magna occaecat sunt
-						est voluptate ullamco amet officia. Lorem ipsum incididunt
-						reprehenderit est veniam exercitation nulla aute ad incididunt
-						laboris. Id enim ipsum occaecat eiusmod.
-					</p>
+					<div>
+						<p className="text-center">
+							Queremos ser parte de tus momentos, tu estilo transforma tu look
+							por completo. En Natalia Salon sabemos que cada momento tiene su
+							estilo y cuenta una historia.
+						</p>
+						<p className="text-center">
+							Ya sea un liso más brillante , un color más radiante, tus manos y
+							pies impecable y más ¡Impresiona y lúce con el poder de un nuevo
+							look!
+						</p>
+					</div>
 					<article className="grid grid-cols-3 gap-2">
 						<div>
 							<Image
