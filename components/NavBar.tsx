@@ -76,7 +76,12 @@ export default function NavBar() {
 						</a>
 					</li>
 					<li>
-						<a href="" className="p-2">
+						<a
+							href="https://api.whatsapp.com/send/?phone=50372951072&text&type=phone_number&app_absent=0"
+							className="p-2"
+							target="_blank"
+							rel="noopener noreferrer"
+						>
 							<svg
 								xmlns="http://www.w3.org/2000/svg"
 								width="24"
