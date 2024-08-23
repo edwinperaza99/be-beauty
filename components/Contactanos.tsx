@@ -11,6 +11,8 @@ import {
 	PopoverTrigger,
 } from "@/components/ui/popover";
 
+import { Separator } from "@/components/ui/separator";
+
 export function Contactanos() {
 	return (
 		<Accordion type="single" collapsible className="w-full">
@@ -56,9 +58,11 @@ export function Contactanos() {
 										<li>
 											<a href="">Natalia Salon</a>
 										</li>
+										<Separator className="my-2" />
 										<li>
 											<a href="">Be Beauty Salon</a>
 										</li>
+										<Separator className="my-2" />
 										<li>
 											<a href="">Be Beauty Supply</a>
 										</li>
@@ -92,9 +96,11 @@ export function Contactanos() {
 										<li>
 											<a href="">Natalia Salon</a>
 										</li>
+										<Separator className="my-2" />
 										<li>
 											<a href="">Be Beauty Salon</a>
 										</li>
+										<Separator className="my-2" />
 										<li>
 											<a href="">Be Beauty Supply</a>
 										</li>
