@@ -56,15 +56,23 @@ export function Contactanos() {
 								<PopoverContent className="w-fit bg-[#CCD580]">
 									<ul className="text-white flex flex-col justify-center items-center text-center overflow-hidden">
 										<li>
-											<a href="">Natalia Salon</a>
+											<a
+												href="https://www.instagram.com/nataliasalones/"
+												target="_blank"
+												rel="noopener noreferrer"
+											>
+												Natalia Salon
+											</a>
 										</li>
 										<Separator className="my-2" />
 										<li>
-											<a href="">Be Beauty Salon</a>
-										</li>
-										<Separator className="my-2" />
-										<li>
-											<a href="">Be Beauty Supply</a>
+											<a
+												href="https://www.instagram.com/bebeautysalones/"
+												target="_blank"
+												rel="noopener noreferrer"
+											>
+												Be Beauty Salon
+											</a>
 										</li>
 									</ul>
 								</PopoverContent>
@@ -94,15 +102,33 @@ export function Contactanos() {
 								<PopoverContent className="w-fit bg-[#CCD580]">
 									<ul className="text-white flex flex-col justify-center items-center text-center overflow-hidden">
 										<li>
-											<a href="">Natalia Salon</a>
+											<a
+												href="https://www.facebook.com/nataliasalones/"
+												target="_blank"
+												rel="noopener noreferrer"
+											>
+												Natalia Salon
+											</a>
 										</li>
 										<Separator className="my-2" />
 										<li>
-											<a href="">Be Beauty Salon</a>
+											<a
+												href="https://www.facebook.com/bebeautysalones"
+												target="_blank"
+												rel="noopener noreferrer"
+											>
+												Be Beauty Salon
+											</a>
 										</li>
 										<Separator className="my-2" />
 										<li>
-											<a href="">Be Beauty Supply</a>
+											<a
+												href="https://www.facebook.com/Beautysupplyenlinea"
+												target="_blank"
+												rel="noopener noreferrer"
+											>
+												Be Beauty Supply
+											</a>
 										</li>
 									</ul>
 								</PopoverContent>
