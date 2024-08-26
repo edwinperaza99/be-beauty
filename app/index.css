@@ -81,3 +81,10 @@ html {
 	height: 70px;
 	background-color: #191b16;
 }
+
+#products {
+	background-color: #191b16;
+	min-height: 100dvh;
+	color: white;
+	padding: 50px 0;
+}
