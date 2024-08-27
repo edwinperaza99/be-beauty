@@ -101,6 +101,7 @@ export default function Home() {
 				</section>
 				<div className="divider"></div>
 				<section id="contactanos">
+					<h2 className="text-4xl text-center py-2">CONTACTANOS</h2>
 					<article className="flex gap-8 space-between items-center contactanos">
 						<div className="contact-image-container">
 							<Image
