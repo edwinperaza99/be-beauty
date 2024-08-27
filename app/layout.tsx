@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, Libre_Baskerville } from "next/font/google";
 import "./globals.css";
-import NavBar from "@/components/NavBar";
+import NavBar from "@/components/navigation/NavBar";
 import Footer from "@/components/Footer";
 
 const inter = Inter({ subsets: ["latin"] });
