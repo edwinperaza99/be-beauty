@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Roboto } from "next/font/google";
+import Hamburger from "./hamburger";
 
 const roboto = Roboto({ weight: "900", subsets: ["latin"] });
 
@@ -101,6 +102,7 @@ export default function NavBar() {
 						</a>
 					</li>
 				</ul>
+				<Hamburger />
 			</nav>
 		</header>
 	);
