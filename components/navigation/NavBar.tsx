@@ -1,11 +1,18 @@
+"use client";
+
+import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Roboto } from "next/font/google";
-import Hamburger from "./hamburger";
 
 const roboto = Roboto({ weight: "900", subsets: ["latin"] });
 
 export default function NavBar() {
+	const [isNavbarOpen, setNavbarOpen] = React.useState(false);
+
+	const toggleNavbar = () => {
+		setNavbarOpen(!isNavbarOpen);
+	};
 	return (
 		<header className="text-white w-full h-auto bg-black/30 fixed top-0 z-20">
 			<nav
@@ -102,7 +109,30 @@ export default function NavBar() {
 						</a>
 					</li>
 				</ul>
-				<Hamburger />
+
+				{/* hamburger menu button  */}
+				<button
+					className="group h-11 w-11 rounded-lg border-white flex justify-center items-center border-2"
+					onClick={toggleNavbar}
+				>
+					<div className="grid place-content-center gap-2">
+						<span
+							className={`block h-1 w-8 bg-white rounded-full transition-transform duration-300 ease-in-out ${
+								isNavbarOpen ? "transform rotate-45 translate-y-3" : ""
+							}`}
+						></span>
+						<span
+							className={`block h-1 w-8 bg-white rounded-full transition-opacity duration-300 ease-in-out ${
+								isNavbarOpen ? "opacity-0" : ""
+							}`}
+						></span>
+						<span
+							className={`block h-1 w-8 bg-white rounded-full transition-transform duration-300 ease-in-out ${
+								isNavbarOpen ? "transform -rotate-45 -translate-y-3" : ""
+							}`}
+						></span>
+					</div>
+				</button>
 			</nav>
 		</header>
 	);
