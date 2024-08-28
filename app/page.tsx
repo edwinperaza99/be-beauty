@@ -29,29 +29,29 @@ export default function Home() {
 				</section>
 				<section
 					id="services"
-					className="flex flex-col justify-center py-16 gap-4"
+					className="flex flex-col justify-center py-16 gap-4 px-4"
 				>
 					<h2 className="text-center text-4xl">SERVICIOS</h2>
-					<div>
-						<p className="text-center">
+					<div className="text-center text-sm md:text-md">
+						<p>
 							Queremos ser parte de tus momentos, tu estilo transforma tu look
 							por completo. En Natalia Salon sabemos que cada momento tiene su
 							estilo y cuenta una historia.
 						</p>
-						<p className="text-center">
+						<p>
 							Ya sea un liso más brillante , un color más radiante, tus manos y
 							pies impecable y más ¡Impresiona y lúce con el poder de un nuevo
 							look!
 						</p>
 					</div>
-					<article className="grid grid-cols-3 gap-2">
+					<article className="grid grid-cols-3">
 						<div>
 							<Image
 								src="https://images.pexels.com/photos/3993311/pexels-photo-3993311.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
 								alt="teñido de pelo"
 								width={300}
 								height={300}
-								className="p-4"
+								className="p-2 md:p-4"
 							/>
 							<h3 className="text-xl text-center font-black">Color</h3>
 						</div>
@@ -61,7 +61,7 @@ export default function Home() {
 								alt="Manicure"
 								width={300}
 								height={300}
-								className="p-4"
+								className="p-2 md:p-4"
 							/>
 							<h3 className="text-xl text-center font-black">Uñas</h3>
 						</div>
@@ -71,7 +71,7 @@ export default function Home() {
 								alt="Corte de pelo"
 								width={300}
 								height={300}
-								className="p-4"
+								className="p-2 md:p-4"
 							/>
 							<h3 className="text-xl text-center font-black">Corte</h3>
 						</div>
@@ -82,7 +82,7 @@ export default function Home() {
 						</Link>
 					</div>
 				</section>
-				<section className="phrase-section bg-[#242921] flex justify-center items-center relative w-full h-[650px]">
+				<section className="phrase-section bg-[#242921] flex justify-center items-center relative w-full h-[650px] ">
 					{/* <div className="p-4 z-0 max-w-[800px] h-[300px]"> */}
 					<Image
 						src={salon_inside}
@@ -95,14 +95,15 @@ export default function Home() {
 						className="absolute z-0 opacity-80 phrase-section-image"
 					/>
 					{/* </div> */}
-					<p className="absolute text-5xl text-center place-content-center z-10 text-[#CCD580]">
-						Be Beauty, Be You
+					<p className="absolute text-3xl md:text-5xl text-center place-content-center z-10 text-[#CCD580]">
+						<span className="block md:inline">Be Beauty,</span>
+						<span className="block md:inline">Be You</span>
 					</p>
 				</section>
 				<div className="divider"></div>
-				<section id="contactanos">
+				<section className="px-4 bg-[#242921] text-white py-8">
 					<h2 className="text-4xl text-center py-2">CONTACTANOS</h2>
-					<article className="flex gap-8 space-between items-center contactanos">
+					<article className="flex gap-4 md:gap-8 text-sm md:text-md space-between items-center contactanos">
 						<div className="contact-image-container">
 							<Image
 								src="https://images.pexels.com/photos/3993453/pexels-photo-3993453.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
