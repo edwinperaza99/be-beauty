@@ -118,18 +118,18 @@ export default function NavBar() {
 				>
 					<div className="grid place-content-center gap-2">
 						<span
-							className={`block h-1 w-8 bg-white rounded-full transition-transform duration-300 ease-in-out ${
-								isNavbarOpen ? "transform rotate-45 translate-y-3" : ""
+							className={`block h-0.5 w-8 bg-white rounded-full transition-transform duration-300 ease-in-out ${
+								isNavbarOpen ? "transform rotate-45 translate-y-2.5" : ""
 							}`}
 						></span>
 						<span
-							className={`block h-1 w-8 bg-white rounded-full transition-opacity duration-300 ease-in-out ${
+							className={`block h-0.5 w-8 bg-white rounded-full transition-opacity duration-300 ease-in-out ${
 								isNavbarOpen ? "opacity-0" : ""
 							}`}
 						></span>
 						<span
-							className={`block h-1 w-8 bg-white rounded-full transition-transform duration-300 ease-in-out ${
-								isNavbarOpen ? "transform -rotate-45 -translate-y-3" : ""
+							className={`block h-0.5 w-8 bg-white rounded-full transition-transform duration-300 ease-in-out ${
+								isNavbarOpen ? "transform -rotate-45 -translate-y-2.5" : ""
 							}`}
 						></span>
 					</div>
@@ -140,17 +140,29 @@ export default function NavBar() {
 					<div className="absolute top-full left-0 w-full bg-black/30">
 						<ul className="flex flex-col justify-center text-center pt-4 gap-2">
 							<li>
-								<Link href="/servicios" className="p-4 hover:text-green-300">
+								<Link
+									href="/servicios"
+									className="p-4 hover:text-green-300"
+									onClick={toggleNavbar}
+								>
 									Servicios
 								</Link>
 							</li>
 							<li>
-								<Link href="/productos" className="p-4 hover:text-green-300">
+								<Link
+									href="/productos"
+									className="p-4 hover:text-green-300"
+									onClick={toggleNavbar}
+								>
 									Productos
 								</Link>
 							</li>
 							<li>
-								<Link href="/staff" className="p-4 hover:text-green-300">
+								<Link
+									href="/staff"
+									className="p-4 hover:text-green-300"
+									onClick={toggleNavbar}
+								>
 									Staff
 								</Link>
 							</li>
