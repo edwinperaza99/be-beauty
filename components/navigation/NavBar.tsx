@@ -17,11 +17,11 @@ export default function NavBar() {
 		<header className="text-white w-full h-auto bg-black/30 fixed top-0 z-20">
 			<nav
 				// className="flex flex-row items-center justify-between py-4"
-				className="container mx-auto flex items-center justify-between py-2"
+				className="md:container mx-auto flex items-center justify-between p-4"
 				// id="navbar"
 			>
 				{/* <Image src="/logo.png" alt="Be Beauty" width={100} height={100} /> */}
-				<a href="/#start" className={(roboto.className, "justify-start ml-4")}>
+				<a href="/#start" className={(roboto.className, "justify-start")}>
 					<h1 className="text-xl md:text-4xl">NATALIA</h1>
 					<h2 className="text-sm md:text-md">SALON & BEAUTY SUPPLY</h2>
 				</a>
@@ -43,13 +43,12 @@ export default function NavBar() {
 					</li>
 				</ul>
 				{/* social media links */}
-				<ul className="hidden md:flex gap-2 justify-end mr-4">
+				<ul className="hidden md:flex gap-2 justify-end items-center">
 					<li>
 						<a
 							href="https://www.instagram.com/nataliasalones/"
 							target="_blank"
 							rel="noopener noreferrer"
-							className="p-2"
 						>
 							<svg
 								xmlns="http://www.w3.org/2000/svg"
@@ -75,7 +74,6 @@ export default function NavBar() {
 							href="https://www.facebook.com/nataliasalones/"
 							target="_blank"
 							rel="noopener noreferrer"
-							className="p-2"
 						>
 							<svg
 								xmlns="http://www.w3.org/2000/svg"
@@ -97,7 +95,6 @@ export default function NavBar() {
 					<li>
 						<a
 							href="https://api.whatsapp.com/send/?phone=50372951072&text&type=phone_number&app_absent=0"
-							className="p-2"
 							target="_blank"
 							rel="noopener noreferrer"
 						>
