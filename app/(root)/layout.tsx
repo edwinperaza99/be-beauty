@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Inter, Libre_Baskerville } from "next/font/google";
-import "./globals.css";
+import "@/app/globals.css";
 import NavBar from "@/components/navigation/NavBar";
 import Footer from "@/components/Footer";
 

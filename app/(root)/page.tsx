@@ -2,7 +2,7 @@ import "./index.css";
 import Image from "next/image";
 import Link from "next/link";
 import { Licorice } from "next/font/google";
-import salon_inside from "../public/salon.jpg";
+import salon_inside from "@/public/salon.jpg";
 import { Contactanos } from "@/components/Contactanos";
 
 const licorice = Licorice({ weight: "400", subsets: ["latin"] });
