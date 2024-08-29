@@ -21,7 +21,7 @@ export default function Home() {
 							Es un <span className={licorice.className}>sentimiento</span>
 						</p>
 						<div>
-							<a href="" className="p-2 text-white bg-[#CCD580]">
+							<a href="" className="text-lg p-2 text-white bg-[#CCD580]">
 								Haz tu cita
 							</a>
 						</div>
