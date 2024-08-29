@@ -14,7 +14,7 @@ export default function NavBar() {
 		setNavbarOpen(!isNavbarOpen);
 	};
 	return (
-		<header className="text-white w-full h-auto bg-black/30 fixed top-0 z-20">
+		<header className="text-white w-full h-auto bg-black/70 fixed top-0 z-20">
 			<nav
 				// className="flex flex-row items-center justify-between py-4"
 				className="md:container mx-auto flex items-center justify-between p-4"
@@ -120,7 +120,7 @@ export default function NavBar() {
 
 				{/* hamburger menu button  */}
 				<button
-					className="md:hidden group h-11 w-11 rounded-lg border-white flex justify-center items-center border-2"
+					className="md:hidden group h-11 w-11 flex justify-center items-center"
 					onClick={toggleNavbar}
 				>
 					<div className="grid place-content-center gap-2">
@@ -144,7 +144,7 @@ export default function NavBar() {
 
 				{/* mobile menu when toggled  */}
 				{isNavbarOpen && (
-					<div className="absolute top-full left-0 w-full bg-black/30">
+					<div className="absolute top-full left-0 w-full bg-black/70">
 						<ul className="flex flex-col justify-center text-center pt-4 gap-2">
 							<li>
 								<Link
