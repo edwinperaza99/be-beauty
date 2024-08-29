@@ -20,7 +20,7 @@ export function Contactanos() {
 				<AccordionTrigger>Ubicación</AccordionTrigger>
 				<AccordionContent>
 					<h3 className="text-md">Autopista Sur</h3>
-					<p className="text-xs pt-0.5">
+					<p className="text-[0.7rem] pt-0.5">
 						Dirección: Centro Comercial Autopista Sur, Local #43, San Salvador
 					</p>
 				</AccordionContent>
@@ -28,7 +28,7 @@ export function Contactanos() {
 			<AccordionItem value="item-2">
 				<AccordionTrigger>Contacto</AccordionTrigger>
 				<AccordionContent className="flex flex-col gap-2">
-					<p className="text-xs md:text-md">Telefono: +503 2248-0105</p>
+					<p className="text-[0.7rem] md:text-md">Telefono: +503 2248-0105</p>
 					<ul className="flex gap-2 md:gap-4">
 						<li>
 							<Popover>
@@ -167,7 +167,7 @@ export function Contactanos() {
 			<AccordionItem value="item-3">
 				<AccordionTrigger>Horario</AccordionTrigger>
 				<AccordionContent>
-					<ul className="text-[0.6rem] md:text-md">
+					<ul className="text-[0.7rem] md:text-md">
 						<li>Lunes - Sábado: 7:00 AM - 7:00 PM</li>
 						{/* <li>Lunes: 9am - 5pm</li>
                         <li>Martes: 9am - 5pm</li>
