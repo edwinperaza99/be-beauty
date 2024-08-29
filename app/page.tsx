@@ -96,8 +96,7 @@ export default function Home() {
 					/>
 					{/* </div> */}
 					<p className="absolute text-3xl md:text-5xl text-center place-content-center z-10 text-[#CCD580]">
-						<span className="block md:inline">Be Beauty,</span>
-						<span className="block md:inline">Be You</span>
+						Be Beauty, <wbr /> Be You
 					</p>
 				</section>
 				<div className="bg-[#191b16] h-12 md:h-20"></div>
