@@ -27,6 +27,7 @@ export default function RootLayout({
 				<div className="min-h-[calc(100vh-80px)]">
 					<NavBar />
 					{children}
+					<SpeedInsights />
 					<Footer />
 				</div>
 			</body>
