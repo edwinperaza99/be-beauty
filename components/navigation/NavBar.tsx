@@ -45,7 +45,12 @@ export default function NavBar() {
 				{/* social media links */}
 				<ul className="hidden md:flex gap-2 justify-end mr-4">
 					<li>
-						<a href="" className="p-2">
+						<a
+							href="https://www.instagram.com/nataliasalones/"
+							target="_blank"
+							rel="noopener noreferrer"
+							className="p-2"
+						>
 							<svg
 								xmlns="http://www.w3.org/2000/svg"
 								width="24"
@@ -66,7 +71,12 @@ export default function NavBar() {
 						</a>
 					</li>
 					<li>
-						<a href="" className="p-2">
+						<a
+							href="https://www.facebook.com/nataliasalones/"
+							target="_blank"
+							rel="noopener noreferrer"
+							className="p-2"
+						>
 							<svg
 								xmlns="http://www.w3.org/2000/svg"
 								width="24"
@@ -169,7 +179,12 @@ export default function NavBar() {
 						</ul>
 						<ul className="flex gap-2 justify-end mr-4">
 							<li>
-								<a href="" className="p-2">
+								<a
+									href="https://www.instagram.com/nataliasalones/"
+									target="_blank"
+									rel="noopener noreferrer"
+									className="p-2"
+								>
 									<svg
 										xmlns="http://www.w3.org/2000/svg"
 										width="24"
@@ -190,7 +205,12 @@ export default function NavBar() {
 								</a>
 							</li>
 							<li>
-								<a href="" className="p-2">
+								<a
+									href="https://www.facebook.com/nataliasalones/"
+									target="_blank"
+									rel="noopener noreferrer"
+									className="p-2"
+								>
 									<svg
 										xmlns="http://www.w3.org/2000/svg"
 										width="24"
