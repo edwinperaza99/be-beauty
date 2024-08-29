@@ -102,7 +102,7 @@ export default function Home() {
 				<div className="bg-[#191b16] h-12 md:h-20"></div>
 				<section className="px-4 bg-[#242921] text-white py-8">
 					<h2 className="text-4xl text-center py-2">CONTACTANOS</h2>
-					<article className="flex gap-4 md:gap-8 text-sm md:text-md space-between items-center contactanos">
+					<article className="flex gap-4 md:gap-8 text-sm md:text-md space-between items-center contactanos min-h-[457px] md:min-h-[420px]">
 						<div className="contact-image-container">
 							<Image
 								src="https://images.pexels.com/photos/3993453/pexels-photo-3993453.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"

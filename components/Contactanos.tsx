@@ -13,6 +13,8 @@ import {
 
 import { Separator } from "@/components/ui/separator";
 
+import Map from "./map/Map";
+
 export function Contactanos() {
 	return (
 		<Accordion type="single" collapsible className="w-full">
@@ -23,6 +25,7 @@ export function Contactanos() {
 					<p className="text-[0.7rem] pt-0.5">
 						Dirección: Centro Comercial Autopista Sur, Local #43, San Salvador
 					</p>
+					<Map />
 				</AccordionContent>
 			</AccordionItem>
 			<AccordionItem value="item-2">
