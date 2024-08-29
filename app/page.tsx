@@ -82,7 +82,7 @@ export default function Home() {
 						</Link>
 					</div>
 				</section>
-				<section className="phrase-section bg-[#242921] flex justify-center items-center relative w-full h-[650px] ">
+				<section className="bg-[#242921] flex justify-center items-center relative w-full h-[400px] md:h-[650px]">
 					{/* <div className="p-4 z-0 max-w-[800px] h-[300px]"> */}
 					<Image
 						src={salon_inside}
@@ -100,7 +100,7 @@ export default function Home() {
 						<span className="block md:inline">Be You</span>
 					</p>
 				</section>
-				<div className="divider"></div>
+				<div className="bg-[#191b16] h-12 md:h-20"></div>
 				<section className="px-4 bg-[#242921] text-white py-8">
 					<h2 className="text-4xl text-center py-2">CONTACTANOS</h2>
 					<article className="flex gap-4 md:gap-8 text-sm md:text-md space-between items-center contactanos">
