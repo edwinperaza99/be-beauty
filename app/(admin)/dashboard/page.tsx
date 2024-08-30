@@ -24,8 +24,8 @@ import {
 export default function Dashboard() {
 	return (
 		<>
-			<main className="flex flex-col gap-4 mt-14">
-				<section className="flex flex-col items-center" id="landing">
+			<main className="mx-auto gap-4 mt-14">
+				<section className="container flex flex-col items-center" id="landing">
 					<details className="text-lg container">
 						<summary className="text-4xl font-bold text-center">
 							Panel de Administrador
