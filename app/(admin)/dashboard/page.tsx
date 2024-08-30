@@ -10,11 +10,22 @@ import {
 	SheetTrigger,
 } from "@/components/ui/sheet";
 
+import {
+	Table,
+	TableBody,
+	TableCaption,
+	TableCell,
+	TableHead,
+	TableHeader,
+	TableFooter,
+	TableRow,
+} from "@/components/ui/table";
+
 export default function Dashboard() {
 	return (
 		<>
-			<main className="">
-				<section className="flex flex-col items-center mt-10" id="landing">
+			<main className="flex flex-col gap-4 mt-14">
+				<section className="flex flex-col items-center" id="landing">
 					<details className="text-lg container">
 						<summary className="text-4xl font-bold text-center">
 							Panel de Administrador
@@ -62,7 +73,57 @@ export default function Dashboard() {
 					</Sheet>
 				</section>
 				{/* table goes here  */}
-				<section></section>
+				<section className="container">
+					<Table>
+						<TableCaption>A list of your recent invoices.</TableCaption>
+						<TableHeader>
+							<TableRow>
+								<TableHead className="w-[100px]">ID</TableHead>
+								<TableHead>Nombre</TableHead>
+								<TableHead>Method</TableHead>
+								<TableHead className="text-right">Amount</TableHead>
+							</TableRow>
+						</TableHeader>
+						<TableBody>
+							<TableRow>
+								<TableCell className="font-medium">INV001</TableCell>
+								<TableCell>Paid</TableCell>
+								<TableCell>Credit Card</TableCell>
+								<TableCell className="text-right">$250.00</TableCell>
+							</TableRow>
+							<TableRow>
+								<TableCell className="font-medium">INV001</TableCell>
+								<TableCell>Paid</TableCell>
+								<TableCell>Credit Card</TableCell>
+								<TableCell className="text-right">$250.00</TableCell>
+							</TableRow>
+							<TableRow>
+								<TableCell className="font-medium">INV001</TableCell>
+								<TableCell>Paid</TableCell>
+								<TableCell>Credit Card</TableCell>
+								<TableCell className="text-right">$250.00</TableCell>
+							</TableRow>
+							<TableRow>
+								<TableCell className="font-medium">INV001</TableCell>
+								<TableCell>Paid</TableCell>
+								<TableCell>Credit Card</TableCell>
+								<TableCell className="text-right">$250.00</TableCell>
+							</TableRow>
+							<TableRow>
+								<TableCell className="font-medium">INV001</TableCell>
+								<TableCell>Paid</TableCell>
+								<TableCell>Credit Card</TableCell>
+								<TableCell className="text-right">$250.00</TableCell>
+							</TableRow>
+							<TableRow>
+								<TableCell className="font-medium">INV001</TableCell>
+								<TableCell>Paid</TableCell>
+								<TableCell>Credit Card</TableCell>
+								<TableCell className="text-right">$250.00</TableCell>
+							</TableRow>
+						</TableBody>
+					</Table>
+				</section>
 			</main>
 		</>
 	);
