@@ -18,7 +18,9 @@ model Product {
   name        String
   description String?
   price       Float?
-  image       String?
+  image_url   String?
+  stock_qty   Int?
+  barcode     String?  @unique
   categories  String[]
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
