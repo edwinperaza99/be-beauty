@@ -22,7 +22,7 @@ export default function RootLayout({
 	return (
 		<html lang="en" className={libreBaskerville.className}>
 			<body className="">
-				<div className="min-h-[calc(100vh-80px)]">
+				<div className="min-h-screen">
 					{children}
 					<SpeedInsights />
 				</div>
