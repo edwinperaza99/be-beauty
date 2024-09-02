@@ -1,14 +1,5 @@
 import { Button } from "@/components/ui/button";
-import {
-	Sheet,
-	SheetClose,
-	SheetContent,
-	SheetDescription,
-	SheetFooter,
-	SheetHeader,
-	SheetTitle,
-	SheetTrigger,
-} from "@/components/ui/sheet";
+import Link from "next/link";
 
 import {
 	Table,
@@ -51,26 +42,9 @@ export default function Dashboard() {
 							<Button>Caballero</Button>
 						</li>
 					</ul>
-					<Sheet>
-						<SheetTrigger>
-							<Button>Agregar producto</Button>
-						</SheetTrigger>
-						<SheetContent>
-							<SheetHeader>
-								<SheetTitle>Agregar producto</SheetTitle>
-								<SheetDescription>
-									El producto sera agregado a la base de datos y luego sera
-									visible en la tabla al momento de presionar el boton de
-									enviar.
-								</SheetDescription>
-							</SheetHeader>
-							<SheetFooter>
-								<SheetClose>
-									<Button>Enviar</Button>
-								</SheetClose>
-							</SheetFooter>
-						</SheetContent>
-					</Sheet>
+					<Button>
+						<Link href="./dashboard/NewProduct">Agregar Producto</Link>
+					</Button>
 				</section>
 				{/* table goes here  */}
 				<section className="container">
