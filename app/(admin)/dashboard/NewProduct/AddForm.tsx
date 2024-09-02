@@ -125,7 +125,7 @@ export default function AddForm() {
 							</FormItem>
 						)}
 					/>
-					<div className="flex w-full justify-between gap-2">
+					{/* <div className="flex w-full justify-between gap-2">
 						<FormField
 							control={form.control}
 							name="buy_price"
@@ -233,7 +233,7 @@ export default function AddForm() {
 								<FormMessage />
 							</FormItem>
 						)}
-					/>
+					/> */}
 					<Button type="submit">Submit</Button>
 				</form>
 			</Form>
