@@ -1,7 +1,5 @@
-"use client";
-
 import { Button } from "@/components/ui/button";
-import AddProduct from "@/components/add-product-sheet/AddProduct";
+import Link from "next/link";
 
 import {
 	Table,
@@ -44,7 +42,9 @@ export default function Dashboard() {
 							<Button>Caballero</Button>
 						</li>
 					</ul>
-					<AddProduct />
+					<Button>
+						<Link href="./dashboard/NewProduct">Agregar Producto</Link>
+					</Button>
 				</section>
 				{/* table goes here  */}
 				<section className="container">
