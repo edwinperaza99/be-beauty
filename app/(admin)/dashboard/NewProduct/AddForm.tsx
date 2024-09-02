@@ -2,7 +2,7 @@
 
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
-import { z } from "zod";
+import { nullable, z } from "zod";
 import Link from "next/link";
 
 import { Button } from "@/components/ui/button";
@@ -25,21 +25,25 @@ const formSchema = z.object({
 	buy_price: z
 		.number()
 		.positive({ message: "El precio de compra debe ser un número positivo." })
-		.optional(),
+		.optional()
+		.nullable(),
 	paid_price: z
 		.number()
 		.positive({ message: "El precio pagado debe ser un número positivo." })
-		.optional(),
+		.optional()
+		.nullable(),
 	image_url: z
 		.string()
 		.url({ message: "La URL de la imagen debe ser una URL válida." })
-		.optional(),
+		.optional()
+		.nullable(),
 	stock_qty: z
 		.number()
 		.int({ message: "La cantidad de stock debe ser un número entero." })
 		.nonnegative({ message: "La cantidad de stock no puede ser negativa." })
-		.optional(),
-	barcode: z.string().optional(), // Opcional, puede ser nulo, no se necesita mensaje específico
+		.optional()
+		.nullable(),
+	barcode: z.string().optional().nullable(), // Opcional, puede ser nulo, no se necesita mensaje específico
 	categories: z
 		.array(z.string())
 		.min(1, { message: "Se requiere al menos una categoría." }),
@@ -52,11 +56,11 @@ export default function AddForm() {
 		defaultValues: {
 			name: "",
 			description: "",
-			buy_price: undefined,
-			paid_price: undefined,
-			image_url: "",
-			stock_qty: undefined,
-			barcode: "",
+			buy_price: null,
+			paid_price: null,
+			image_url: null,
+			stock_qty: null,
+			barcode: null,
 			categories: [""],
 		},
 	});
