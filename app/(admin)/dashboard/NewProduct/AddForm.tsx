@@ -22,7 +22,7 @@ const formSchema = z.object({
 		.string()
 		.min(1, { message: "El nombre del producto es obligatorio." }),
 	description: z.string().optional(), // Campo opcional sin mensaje de validación específico
-	buy_price: z
+	buy_price: z.coerce
 		.number()
 		.positive({ message: "El precio de compra debe ser un número positivo." })
 		.optional()
