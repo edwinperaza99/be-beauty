@@ -1,6 +1,7 @@
 "use client";
 
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { nullable, z } from "zod";
 import Link from "next/link";
@@ -16,6 +17,7 @@ import {
 	FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
 
 const formSchema = z.object({
 	name: z
@@ -27,7 +29,7 @@ const formSchema = z.object({
 		.positive({ message: "El precio de compra debe ser un número positivo." })
 		.optional()
 		.nullable(),
-	paid_price: z
+	paid_price: z.coerce
 		.number()
 		.positive({ message: "El precio pagado debe ser un número positivo." })
 		.optional()
@@ -37,7 +39,7 @@ const formSchema = z.object({
 		.url({ message: "La URL de la imagen debe ser una URL válida." })
 		.optional()
 		.nullable(),
-	stock_qty: z
+	stock_qty: z.coerce
 		.number()
 		.int({ message: "La cantidad de stock debe ser un número entero." })
 		.nonnegative({ message: "La cantidad de stock no puede ser negativa." })
@@ -51,6 +53,8 @@ const formSchema = z.object({
 	// updatedAt: z.date().optional(), // Opcional, manejado por la base de datos
 });
 export default function AddForm() {
+	const [isLoading, setIsLoading] = useState(false);
+
 	const form = useForm<z.infer<typeof formSchema>>({
 		resolver: zodResolver(formSchema),
 		defaultValues: {
@@ -65,6 +69,7 @@ export default function AddForm() {
 		},
 	});
 	function onSubmit(values: z.infer<typeof formSchema>) {
+		setIsLoading(true);
 		fetch("/api/products", {
 			method: "POST",
 			headers: {
@@ -81,6 +86,8 @@ export default function AddForm() {
 				console.error("Error creating product:", error);
 				// Handle the error, show an error message, etc.
 			});
+		setIsLoading(false); // Reset loading state
+		form.reset(); // Clear form fields
 		console.log(values);
 	}
 	return (
@@ -116,7 +123,7 @@ export default function AddForm() {
 							<FormItem>
 								<FormLabel>Descripción</FormLabel>
 								<FormControl>
-									<Input placeholder="Descripción del producto" {...field} />
+									<Textarea placeholder="Descripción del producto" {...field} />
 								</FormControl>
 								<FormDescription>
 									Esta se verá reflejada en la página del producto. Es opcional.
@@ -125,7 +132,7 @@ export default function AddForm() {
 							</FormItem>
 						)}
 					/>
-					{/* <div className="flex w-full justify-between gap-2">
+					<div className="flex w-full justify-between gap-2">
 						<FormField
 							control={form.control}
 							name="buy_price"
@@ -133,11 +140,7 @@ export default function AddForm() {
 								<FormItem className="w-full">
 									<FormLabel>Precio de Compra</FormLabel>
 									<FormControl>
-										<Input
-											type="number"
-											placeholder="Precio de compra"
-											{...field}
-										/>
+										<Input type="number" placeholder="0.00" {...field} />
 									</FormControl>
 									<FormMessage />
 								</FormItem>
@@ -150,11 +153,7 @@ export default function AddForm() {
 								<FormItem className="w-full">
 									<FormLabel>Precio Pagado</FormLabel>
 									<FormControl>
-										<Input
-											type="number"
-											placeholder="Precio pagado"
-											{...field}
-										/>
+										<Input type="number" placeholder="0.00" {...field} />
 									</FormControl>
 									<FormMessage />
 								</FormItem>
@@ -170,7 +169,7 @@ export default function AddForm() {
 									<FormLabel>URL de la Imagen</FormLabel>
 									<FormControl>
 										<Input
-											placeholder="URL de la imagen del producto"
+											placeholder="https://example.com/image.jpg"
 											{...field}
 										/>
 									</FormControl>
@@ -189,11 +188,7 @@ export default function AddForm() {
 								<FormItem className="w-full">
 									<FormLabel>Cantidad en Stock</FormLabel>
 									<FormControl>
-										<Input
-											type="number"
-											placeholder="Cantidad en stock"
-											{...field}
-										/>
+										<Input type="number" placeholder="0" {...field} />
 									</FormControl>
 									<FormDescription>
 										Este valor es opcional y puede ser modificado más adelante.
@@ -210,14 +205,14 @@ export default function AddForm() {
 							<FormItem>
 								<FormLabel>Código de Barras</FormLabel>
 								<FormControl>
-									<Input placeholder="Código de barras" {...field} />
+									<Input placeholder="1234567890" {...field} />
 								</FormControl>
 								<FormMessage />
 							</FormItem>
 						)}
 					/>
 
-					<FormField
+					{/* <FormField
 						control={form.control}
 						name="categories"
 						render={({ field }) => (
@@ -234,7 +229,9 @@ export default function AddForm() {
 							</FormItem>
 						)}
 					/> */}
-					<Button type="submit">Submit</Button>
+					<Button type="submit" disabled={isLoading}>
+						{isLoading ? "Loading..." : "Submit"}
+					</Button>
 				</form>
 			</Form>
 		</div>
