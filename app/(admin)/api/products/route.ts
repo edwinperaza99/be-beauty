@@ -2,7 +2,7 @@
 
 // const prisma = new PrismaClient();
 
-import prisma from "@/lib/prisma";
+import { prisma } from "@/lib/prisma";
 
 export async function POST(req: Request): Promise<Response> {
 	const {
