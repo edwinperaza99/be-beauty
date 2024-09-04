@@ -42,3 +42,12 @@ export async function POST(req: Request): Promise<Response> {
 		});
 	}
 }
+
+export async function GET(req: Request): Promise<Response> {
+	const products = await prisma.product.findMany();
+
+	return new Response(JSON.stringify(products), {
+		status: 200,
+		headers: { "Content-Type": "application/json" },
+	});
+}
