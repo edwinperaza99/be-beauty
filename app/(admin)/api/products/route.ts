@@ -44,10 +44,21 @@ export async function POST(req: Request): Promise<Response> {
 }
 
 export async function GET(req: Request): Promise<Response> {
-	const products = await prisma.product.findMany();
+	try {
+		const products = await prisma.product.findMany();
 
-	return new Response(JSON.stringify(products), {
-		status: 200,
-		headers: { "Content-Type": "application/json" },
-	});
+		return new Response(JSON.stringify(products), {
+			status: 200,
+			headers: { "Content-Type": "application/json" },
+		});
+	} catch (error) {
+		console.error("Failed to retrieve products:", error);
+		return new Response(
+			JSON.stringify({ error: "Failed to retrieve products" }),
+			{
+				status: 500,
+				headers: { "Content-Type": "application/json" },
+			}
+		);
+	}
 }
