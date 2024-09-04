@@ -1,8 +1,15 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Product } from "@/prisma/client";
 import "../index.css";
+
+interface Product {
+	id: string;
+	name: string;
+	description?: string;
+	price?: number;
+	image_url?: string;
+}
 
 export default function Productos() {
 	const [products, setProducts] = useState([]);
