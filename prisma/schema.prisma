@@ -23,6 +23,7 @@ model Product {
   stock_qty   Int?
   barcode     String?
   categories  String[]
+  active      Boolean  @default(false)
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
 }
