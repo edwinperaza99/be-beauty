@@ -140,7 +140,12 @@ export default function AddForm() {
 								<FormItem className="w-full">
 									<FormLabel>Precio de Compra</FormLabel>
 									<FormControl>
-										<Input type="number" placeholder="0.00" {...field} />
+										<Input
+											type="number"
+											placeholder="0.00"
+											{...field}
+											value={field.value === null ? "" : field.value}
+										/>
 									</FormControl>
 									<FormMessage />
 								</FormItem>
@@ -153,7 +158,12 @@ export default function AddForm() {
 								<FormItem className="w-full">
 									<FormLabel>Precio Pagado</FormLabel>
 									<FormControl>
-										<Input type="number" placeholder="0.00" {...field} />
+										<Input
+											type="number"
+											placeholder="0.00"
+											{...field}
+											value={field.value === null ? "" : field.value}
+										/>
 									</FormControl>
 									<FormMessage />
 								</FormItem>
@@ -171,6 +181,7 @@ export default function AddForm() {
 										<Input
 											placeholder="https://example.com/image.jpg"
 											{...field}
+											value={field.value === null ? "" : field.value}
 										/>
 									</FormControl>
 									<FormDescription>
@@ -188,7 +199,12 @@ export default function AddForm() {
 								<FormItem className="w-full">
 									<FormLabel>Cantidad en Stock</FormLabel>
 									<FormControl>
-										<Input type="number" placeholder="0" {...field} />
+										<Input
+											type="number"
+											placeholder="0"
+											{...field}
+											value={field.value === null ? "" : field.value}
+										/>
 									</FormControl>
 									<FormDescription>
 										Este valor es opcional y puede ser modificado más adelante.
@@ -205,7 +221,11 @@ export default function AddForm() {
 							<FormItem>
 								<FormLabel>Código de Barras</FormLabel>
 								<FormControl>
-									<Input placeholder="1234567890" {...field} />
+									<Input
+										placeholder="1234567890"
+										{...field}
+										value={field.value === null ? "" : field.value}
+									/>
 								</FormControl>
 								<FormMessage />
 							</FormItem>
