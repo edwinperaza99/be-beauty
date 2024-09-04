@@ -138,7 +138,7 @@ export default function AddForm() {
 							name="buy_price"
 							render={({ field }) => (
 								<FormItem className="w-full">
-									<FormLabel>Precio de Compra</FormLabel>
+									<FormLabel>Precio de Venta</FormLabel>
 									<FormControl>
 										<Input
 											type="number"
