@@ -24,7 +24,7 @@ export default function Productos() {
 	}, []);
 	return (
 		<>
-			<main className="">
+			<main className="mt-[80px] md:mt-[120px]">
 				<section className="flex flex-col items-center">
 					<h1 className="text-4xl font-bold">Nuestros mejores productos</h1>
 					<p className="text-lg">
@@ -38,18 +38,22 @@ export default function Productos() {
 						products.map((product: Product) => (
 							<article
 								key={product.id}
-								className="h-62 w-52 border border-sm rounded-sm p-4"
+								className="shadow-sm hover:shadow-lg overflow-hidden h-auto w-full max-w-xs bg-white"
 							>
-								<div className="h-40">
+								<div className="h-48">
 									<img
 										src={product.image_url}
-										alt="${product.name} image"
+										alt={product.name}
 										className="w-full h-full object-cover"
 									/>
 								</div>
-								<div className="mt-4">
-									<h2 className="text-lg">{product.name}</h2>
-									<p className="text-sm truncate">{product.description}</p>
+								<div className="p-4">
+									<h2 className="text-lg font-semibold mb-2 truncate">
+										{product.name}
+									</h2>
+									<p className="text-sm text-gray-700 line-clamp-3">
+										{product.description}
+									</p>
 								</div>
 							</article>
 						))
