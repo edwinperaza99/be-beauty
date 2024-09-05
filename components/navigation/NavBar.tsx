@@ -135,34 +135,34 @@ export default function NavBar() {
 						</ul>
 						<ul className="flex gap-2 justify-end mr-4">
 							<li>
-								<a
+								<Link
 									href="https://www.instagram.com/nataliasalones/"
 									target="_blank"
 									rel="noopener noreferrer"
 									className="p-2 hover:text-green-300 text-2xl"
 								>
 									<FaInstagram />
-								</a>
+								</Link>
 							</li>
 							<li>
-								<a
+								<Link
 									href="https://www.facebook.com/nataliasalones/"
 									target="_blank"
 									rel="noopener noreferrer"
 									className="p-2 hover:text-green-300 text-2xl"
 								>
 									<FaFacebook className="text-lg" />
-								</a>
+								</Link>
 							</li>
 							<li>
-								<a
+								<Link
 									href="https://api.whatsapp.com/send/?phone=50372951072&text&type=phone_number&app_absent=0"
 									className="p-2"
 									target="_blank"
 									rel="noopener noreferrer hover:text-green-300 text-2xl"
 								>
 									<FaWhatsapp />
-								</a>
+								</Link>
 							</li>
 						</ul>
 					</div>
