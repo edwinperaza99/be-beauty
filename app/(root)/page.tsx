@@ -21,9 +21,14 @@ export default function Home() {
 							Es un <span className={licorice.className}>sentimiento</span>
 						</p>
 						<div>
-							<a href="" className="text-lg p-2 text-white bg-[#CCD580]">
+							<Link
+								href="https://api.whatsapp.com/send/?phone=50372951072&text&type=phone_number&app_absent=0"
+								target="_blank"
+								rel="noopener noreferrer"
+								className="text-lg p-2 text-white bg-[#CCD580]"
+							>
 								Haz tu cita
-							</a>
+							</Link>
 						</div>
 					</div>
 				</section>
