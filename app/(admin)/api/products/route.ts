@@ -8,8 +8,8 @@ export async function POST(req: Request): Promise<Response> {
 	const {
 		name,
 		description,
-		buy_price,
-		paid_price,
+		selling_price,
+		purchase_price,
 		image_url,
 		stock_qty,
 		barcode,
@@ -21,8 +21,8 @@ export async function POST(req: Request): Promise<Response> {
 			data: {
 				name,
 				description,
-				buy_price,
-				paid_price,
+				selling_price,
+				purchase_price,
 				image_url,
 				stock_qty,
 				barcode,

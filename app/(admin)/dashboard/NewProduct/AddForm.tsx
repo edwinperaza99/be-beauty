@@ -24,12 +24,12 @@ const formSchema = z.object({
 		.string()
 		.min(1, { message: "El nombre del producto es obligatorio." }),
 	description: z.string().optional(), // Campo opcional sin mensaje de validación específico
-	buy_price: z.coerce
+	selling_price: z.coerce
 		.number()
 		.positive({ message: "El precio de compra debe ser un número positivo." })
 		.optional()
 		.nullable(),
-	paid_price: z.coerce
+	purchase_price: z.coerce
 		.number()
 		.positive({ message: "El precio pagado debe ser un número positivo." })
 		.optional()
@@ -60,8 +60,8 @@ export default function AddForm() {
 		defaultValues: {
 			name: "",
 			description: "",
-			buy_price: null,
-			paid_price: null,
+			selling_price: null,
+			purchase_price: null,
 			image_url: null,
 			stock_qty: null,
 			barcode: null,
@@ -135,7 +135,7 @@ export default function AddForm() {
 					<div className="flex w-full justify-between gap-2">
 						<FormField
 							control={form.control}
-							name="buy_price"
+							name="selling_price"
 							render={({ field }) => (
 								<FormItem className="w-full">
 									<FormLabel>Precio de Venta</FormLabel>
@@ -153,7 +153,7 @@ export default function AddForm() {
 						/>
 						<FormField
 							control={form.control}
-							name="paid_price"
+							name="purchase_price"
 							render={({ field }) => (
 								<FormItem className="w-full">
 									<FormLabel>Precio Pagado</FormLabel>
