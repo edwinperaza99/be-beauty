@@ -33,7 +33,7 @@ export default function Productos() {
 					</p>
 				</section>
 				{/* products cards  */}
-				<section className="container max-w-fit grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-6 py-6">
+				<section className="container-sm md:container max-w-fit grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 md:gap-4 mt-6 mx-2">
 					{products.length > 0 ? (
 						products.map((product: Product) => (
 							<article
@@ -51,7 +51,7 @@ export default function Productos() {
 									<h2 className="text-lg font-semibold mb-2 truncate">
 										{product.name}
 									</h2>
-									<p className="text-sm text-gray-700 line-clamp-3">
+									<p className="text-sm text-gray-600 line-clamp-3">
 										{product.description}
 									</p>
 								</div>
