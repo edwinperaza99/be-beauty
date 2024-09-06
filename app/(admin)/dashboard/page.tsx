@@ -1,5 +1,8 @@
+"use client";
+
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
+import { useEffect, useState } from "react";
 
 import {
 	Table,
@@ -12,7 +15,35 @@ import {
 	TableRow,
 } from "@/components/ui/table";
 
+interface Product {
+	id: string;
+	name: string;
+	description?: string;
+	selling_price?: number;
+	purchase_price?: number;
+	stock_qty?: number;
+	barcode?: string;
+	active?: boolean;
+}
+
 export default function Dashboard() {
+	const [products, setProducts] = useState<Product[]>([]);
+	const [loading, setLoading] = useState(true);
+
+	useEffect(() => {
+		fetch("/api/products", {
+			method: "GET",
+		})
+			.then((response) => response.json())
+			.then((data) => {
+				setProducts(data);
+				setLoading(false);
+			})
+			.catch((error) => {
+				console.error("Error fetching products:", error);
+				setLoading(false);
+			});
+	}, []);
 	return (
 		<>
 			<main className="mx-auto gap-4 mt-14">
@@ -48,55 +79,53 @@ export default function Dashboard() {
 				</section>
 				{/* table goes here  */}
 				<section className="container">
-					<Table>
-						<TableCaption>A list of your recent invoices.</TableCaption>
-						<TableHeader>
-							<TableRow>
-								<TableHead className="w-[100px]">ID</TableHead>
-								<TableHead>Nombre</TableHead>
-								<TableHead>Method</TableHead>
-								<TableHead className="text-right">Amount</TableHead>
-							</TableRow>
-						</TableHeader>
-						<TableBody>
-							<TableRow>
-								<TableCell className="font-medium">INV001</TableCell>
-								<TableCell>Paid</TableCell>
-								<TableCell>Credit Card</TableCell>
-								<TableCell className="text-right">$250.00</TableCell>
-							</TableRow>
-							<TableRow>
-								<TableCell className="font-medium">INV001</TableCell>
-								<TableCell>Paid</TableCell>
-								<TableCell>Credit Card</TableCell>
-								<TableCell className="text-right">$250.00</TableCell>
-							</TableRow>
-							<TableRow>
-								<TableCell className="font-medium">INV001</TableCell>
-								<TableCell>Paid</TableCell>
-								<TableCell>Credit Card</TableCell>
-								<TableCell className="text-right">$250.00</TableCell>
-							</TableRow>
-							<TableRow>
-								<TableCell className="font-medium">INV001</TableCell>
-								<TableCell>Paid</TableCell>
-								<TableCell>Credit Card</TableCell>
-								<TableCell className="text-right">$250.00</TableCell>
-							</TableRow>
-							<TableRow>
-								<TableCell className="font-medium">INV001</TableCell>
-								<TableCell>Paid</TableCell>
-								<TableCell>Credit Card</TableCell>
-								<TableCell className="text-right">$250.00</TableCell>
-							</TableRow>
-							<TableRow>
-								<TableCell className="font-medium">INV001</TableCell>
-								<TableCell>Paid</TableCell>
-								<TableCell>Credit Card</TableCell>
-								<TableCell className="text-right">$250.00</TableCell>
-							</TableRow>
-						</TableBody>
-					</Table>
+					{loading ? (
+						<p>Cargando productos...</p>
+					) : products.length > 0 ? (
+						<Table>
+							<TableCaption>Lista de todos tus productos</TableCaption>
+							<TableHeader>
+								<TableRow>
+									<TableHead>ID</TableHead>
+									<TableHead>Nombre</TableHead>
+									<TableHead>Precio de Venta</TableHead>
+									<TableHead>Precio de Compra</TableHead>
+									<TableHead>Stock</TableHead>
+									<TableHead>Status</TableHead>
+									<TableHead className="text-right">Acciones</TableHead>
+								</TableRow>
+							</TableHeader>
+							<TableBody>
+								{products.map((product) => (
+									<TableRow key={product.id}>
+										<TableCell className="">{product.id}</TableCell>
+										<TableCell>{product.name}</TableCell>
+										<TableCell>
+											{product.selling_price
+												? `$${product.selling_price.toFixed(2)}`
+												: "N/A"}
+										</TableCell>
+										<TableCell>
+											{product.purchase_price
+												? `$${product.purchase_price.toFixed(2)}`
+												: "N/A"}
+										</TableCell>
+										<TableCell>{product.stock_qty ?? "N/A"}</TableCell>
+										<TableCell>
+											{product.active ? "Activo" : "Inactivo"}
+										</TableCell>
+										<TableCell className="text-right">
+											<Button variant="outline" size="sm">
+												Editar
+											</Button>
+										</TableCell>
+									</TableRow>
+								))}
+							</TableBody>
+						</Table>
+					) : (
+						<p>No hay productos disponibles</p>
+					)}
 				</section>
 			</main>
 		</>

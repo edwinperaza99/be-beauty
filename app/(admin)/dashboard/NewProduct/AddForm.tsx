@@ -80,7 +80,7 @@ export default function AddForm() {
 			.then((response) => response.json())
 			.then((data) => {
 				console.log("Product created successfully:", data);
-				// You can also navigate back or show a success message
+				// TODO: Handle successful product creation, either navigate to a new page or show a success message
 			})
 			.catch((error) => {
 				console.error("Error creating product:", error);
