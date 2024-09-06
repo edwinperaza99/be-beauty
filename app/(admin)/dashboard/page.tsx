@@ -58,8 +58,8 @@ export default function Dashboard() {
 						</p>
 					</details>
 				</section>
-				<section className="container flex justify-between">
-					<ul className="flex gap-2">
+				<section className="container flex justify-between py-6">
+					{/* <ul className="flex gap-2">
 						<li>
 							<Button>Todo</Button>
 						</li>
@@ -72,13 +72,13 @@ export default function Dashboard() {
 						<li>
 							<Button>Caballero</Button>
 						</li>
-					</ul>
+					</ul> */}
 					<Button>
 						<Link href="./dashboard/NewProduct">Agregar Producto</Link>
 					</Button>
 				</section>
 				{/* table goes here  */}
-				<section className="container">
+				<section className="container-sm md:container">
 					{loading ? (
 						<p>Cargando productos...</p>
 					) : products.length > 0 ? (
@@ -86,10 +86,14 @@ export default function Dashboard() {
 							<TableCaption>Lista de todos tus productos</TableCaption>
 							<TableHeader>
 								<TableRow>
-									<TableHead>ID</TableHead>
+									<TableHead className="hidden lg:block">ID</TableHead>
 									<TableHead>Nombre</TableHead>
-									<TableHead>Precio de Venta</TableHead>
-									<TableHead>Precio de Compra</TableHead>
+									<TableHead className="hidden md:block">
+										Precio de Venta
+									</TableHead>
+									<TableHead className="hidden md:block">
+										Precio de Compra
+									</TableHead>
 									<TableHead>Stock</TableHead>
 									<TableHead>Status</TableHead>
 									<TableHead className="text-right">Acciones</TableHead>
@@ -98,14 +102,16 @@ export default function Dashboard() {
 							<TableBody>
 								{products.map((product) => (
 									<TableRow key={product.id}>
-										<TableCell className="">{product.id}</TableCell>
+										<TableCell className="hidden lg:block">
+											{product.id}
+										</TableCell>
 										<TableCell>{product.name}</TableCell>
-										<TableCell>
+										<TableCell className="hidden md:block">
 											{product.selling_price
 												? `$${product.selling_price.toFixed(2)}`
 												: "N/A"}
 										</TableCell>
-										<TableCell>
+										<TableCell className="hidden md:block">
 											{product.purchase_price
 												? `$${product.purchase_price.toFixed(2)}`
 												: "N/A"}
