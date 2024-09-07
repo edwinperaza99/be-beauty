@@ -3,7 +3,7 @@
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { Ellipsis } from "lucide-react";
+import { Ellipsis, Pencil, Trash2, CirclePower } from "lucide-react";
 
 import {
 	Table,
@@ -24,6 +24,18 @@ import {
 	DropdownMenuSeparator,
 	DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+
+import {
+	AlertDialog,
+	AlertDialogAction,
+	AlertDialogCancel,
+	AlertDialogContent,
+	AlertDialogDescription,
+	AlertDialogFooter,
+	AlertDialogHeader,
+	AlertDialogTitle,
+	AlertDialogTrigger,
+} from "@/components/ui/alert-dialog";
 
 interface Product {
 	id: string;
@@ -100,15 +112,17 @@ export default function Dashboard() {
 										ID
 									</TableHead>
 									<TableHead>Nombre</TableHead>
-									<TableHead className="hidden md:table-cell">
+									<TableHead className="text-center hidden md:table-cell">
 										Precio de Venta
 									</TableHead>
-									<TableHead className="hidden lg:table-cell">
+									<TableHead className="text-center hidden lg:table-cell">
 										Precio de Compra
 									</TableHead>
-									<TableHead className="hidden md:table-cell">Stock</TableHead>
-									<TableHead>Status</TableHead>
-									<TableHead className="text-right">Acciones</TableHead>
+									<TableHead className="text-center hidden sm:table-cell">
+										Stock
+									</TableHead>
+									<TableHead className="text-center">Status</TableHead>
+									<TableHead className="text-center">Acciones</TableHead>
 								</TableRow>
 							</TableHeader>
 							<TableBody>
@@ -118,23 +132,23 @@ export default function Dashboard() {
 											{product.id}
 										</TableCell>
 										<TableCell>{product.name}</TableCell>
-										<TableCell className="hidden md:table-cell">
+										<TableCell className="text-center hidden md:table-cell">
 											{product.selling_price
 												? `$${product.selling_price.toFixed(2)}`
 												: "N/A"}
 										</TableCell>
-										<TableCell className="hidden lg:table-cell">
+										<TableCell className="text-center hidden lg:table-cell">
 											{product.purchase_price
 												? `$${product.purchase_price.toFixed(2)}`
 												: "N/A"}
 										</TableCell>
-										<TableCell className="hidden md:table-cell">
+										<TableCell className="text-center hidden sm:table-cell">
 											{product.stock_qty ?? "N/A"}
 										</TableCell>
-										<TableCell>
+										<TableCell className="text-center">
 											{product.active ? "Activo" : "Inactivo"}
 										</TableCell>
-										<TableCell className="text-right">
+										<TableCell className="text-center">
 											<DropdownMenu>
 												<DropdownMenuTrigger asChild>
 													<Button variant="outline" size="sm">
@@ -146,10 +160,52 @@ export default function Dashboard() {
 														Acciones
 													</DropdownMenuLabel>
 													<DropdownMenuSeparator />
-													<DropdownMenuItem>Editar</DropdownMenuItem>
-													<DropdownMenuItem>Eliminar</DropdownMenuItem>
 													<DropdownMenuItem>
-														{product.active ? "Desactivar" : "Activar"}
+														<div className="flex flex-row gap-2 items-center">
+															<Pencil size={16} />
+															Editar
+														</div>
+													</DropdownMenuItem>
+													<DropdownMenuItem>
+														<AlertDialog>
+															<AlertDialogTrigger asChild>
+																<div
+																	className="flex flex-row gap-2 items-center"
+																	onClick={(e) => e.stopPropagation()}
+																>
+																	<Trash2 size={16} />
+																	Eliminar
+																</div>
+															</AlertDialogTrigger>
+															<AlertDialogContent>
+																<AlertDialogHeader>
+																	<AlertDialogTitle>
+																		Estas seguro que quieres borrar este
+																		producto?
+																	</AlertDialogTitle>
+																	<AlertDialogDescription>
+																		Esta acción no se puede deshacer. Eliminaras
+																		el producto de la base de datos. Recuerda
+																		que también tienes la opción de desactivar
+																		el producto o editarlo.
+																	</AlertDialogDescription>
+																</AlertDialogHeader>
+																<AlertDialogFooter>
+																	<AlertDialogCancel>
+																		Cancelar
+																	</AlertDialogCancel>
+																	<AlertDialogAction>
+																		Si, eliminar
+																	</AlertDialogAction>
+																</AlertDialogFooter>
+															</AlertDialogContent>
+														</AlertDialog>
+													</DropdownMenuItem>
+													<DropdownMenuItem>
+														<div className="flex flex-row gap-2 items-center">
+															<CirclePower size={16} />
+															{product.active ? "Desactivar" : "Activar"}
+														</div>
 													</DropdownMenuItem>
 												</DropdownMenuContent>
 											</DropdownMenu>
