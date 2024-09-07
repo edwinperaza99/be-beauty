@@ -94,3 +94,46 @@ export async function DELETE(req: Request): Promise<Response> {
 		});
 	}
 }
+
+export async function PATCH(req: Request): Promise<Response> {
+	const url = new URL(req.url);
+	const id = url.searchParams.get("id");
+
+	if (!id) {
+		return new Response(JSON.stringify({ error: "ID is required" }), {
+			status: 400,
+			headers: { "Content-Type": "application/json" },
+		});
+	}
+
+	try {
+		// Fetch the current product's active status
+		const product = await prisma.product.findUnique({
+			where: { id },
+		});
+
+		if (!product) {
+			return new Response(JSON.stringify({ error: "Product not found" }), {
+				status: 404,
+				headers: { "Content-Type": "application/json" },
+			});
+		}
+
+		// Toggle the active status
+		const updatedProduct = await prisma.product.update({
+			where: { id },
+			data: { active: !product.active },
+		});
+
+		return new Response(JSON.stringify(updatedProduct), {
+			status: 200,
+			headers: { "Content-Type": "application/json" },
+		});
+	} catch (error) {
+		console.error("Failed to update product:", error);
+		return new Response(JSON.stringify({ error: "Failed to update product" }), {
+			status: 500,
+			headers: { "Content-Type": "application/json" },
+		});
+	}
+}

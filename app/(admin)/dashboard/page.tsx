@@ -75,6 +75,27 @@ export default function Dashboard() {
 			});
 	}
 
+	function toggleActiveStatus(id: string) {
+		fetch(`/api/products?id=${id}`, {
+			method: "PATCH",
+		})
+			.then((response) => response.json())
+			.then((updatedProduct) => {
+				// Update the product in the state to reflect the new active status
+				setProducts((prevProducts) =>
+					prevProducts.map((product) =>
+						product.id === updatedProduct.id ? updatedProduct : product
+					)
+				);
+				console.log("Product active status toggled successfully");
+				toast.success("Estado del producto cambiado exitosamente");
+			})
+			.catch((error) => {
+				console.error("Error toggling active status:", error);
+				toast.error("Error al cambiar el estado del producto");
+			});
+	}
+
 	useEffect(() => {
 		fetch("/api/products", {
 			method: "GET",
@@ -227,7 +248,9 @@ export default function Dashboard() {
 															</AlertDialogContent>
 														</AlertDialog>
 													</DropdownMenuItem>
-													<DropdownMenuItem>
+													<DropdownMenuItem
+														onClick={() => toggleActiveStatus(product.id)}
+													>
 														<div className="flex flex-row gap-2 items-center">
 															<CirclePower size={16} />
 															{product.active ? "Desactivar" : "Activar"}
