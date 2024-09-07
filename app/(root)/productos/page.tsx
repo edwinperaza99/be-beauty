@@ -15,7 +15,7 @@ export default function Productos() {
 	const [products, setProducts] = useState([]);
 
 	useEffect(() => {
-		fetch("/api/products", {
+		fetch("/api/products?active=true", {
 			method: "GET",
 		})
 			.then((response) => response.json())

@@ -45,7 +45,17 @@ export async function POST(req: Request): Promise<Response> {
 
 export async function GET(req: Request): Promise<Response> {
 	try {
-		const products = await prisma.product.findMany();
+		const url = new URL(req.url);
+		const activeParam = url.searchParams.get("active");
+
+		// If activeParam is 'true', filter by active products only
+		const isActive = activeParam === "true";
+
+		const products = await prisma.product.findMany({
+			// If isActive is true, only return active products
+			// Otherwise, return all products
+			where: isActive ? { active: true } : undefined,
+		});
 
 		return new Response(JSON.stringify(products), {
 			status: 200,
