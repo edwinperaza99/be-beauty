@@ -62,3 +62,35 @@ export async function GET(req: Request): Promise<Response> {
 		);
 	}
 }
+
+export async function DELETE(req: Request): Promise<Response> {
+	const url = new URL(req.url);
+	const id = url.searchParams.get("id");
+
+	if (!id) {
+		return new Response(JSON.stringify({ error: "ID is required" }), {
+			status: 400,
+			headers: { "Content-Type": "application/json" },
+		});
+	}
+
+	try {
+		await prisma.product.delete({
+			where: { id },
+		});
+
+		return new Response(
+			JSON.stringify({ message: "Product deleted successfully" }),
+			{
+				status: 200,
+				headers: { "Content-Type": "application/json" },
+			}
+		);
+	} catch (error) {
+		console.error("Failed to delete product:", error);
+		return new Response(JSON.stringify({ error: "Failed to delete product" }), {
+			status: 500,
+			headers: { "Content-Type": "application/json" },
+		});
+	}
+}

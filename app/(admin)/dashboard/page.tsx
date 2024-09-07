@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { Ellipsis, Pencil, Trash2, CirclePower } from "lucide-react";
+import toast, { Toaster } from "react-hot-toast";
 
 import {
 	Table,
@@ -52,6 +53,28 @@ export default function Dashboard() {
 	const [products, setProducts] = useState<Product[]>([]);
 	const [loading, setLoading] = useState(true);
 
+	function deleteProduct(id: string) {
+		fetch(`/api/products?id=${id}`, {
+			method: "DELETE",
+		})
+			.then((response) => {
+				if (response.ok) {
+					setProducts((prevProducts) =>
+						prevProducts.filter((product) => product.id !== id)
+					);
+					console.log("Product deleted successfully");
+					toast.success("Producto eliminado exitosamente");
+				} else {
+					console.error("Failed to delete product");
+					toast.error("Error al eliminar el producto");
+				}
+			})
+			.catch((error) => {
+				console.error("Error deleting product:", error);
+				toast.error("Error al eliminar el producto");
+			});
+	}
+
 	useEffect(() => {
 		fetch("/api/products", {
 			method: "GET",
@@ -69,6 +92,7 @@ export default function Dashboard() {
 	return (
 		<>
 			<main className="mx-auto gap-4 mt-14">
+				<Toaster />
 				<section className="container flex flex-col items-center" id="landing">
 					<details className="text-lg container">
 						<summary className="text-4xl font-bold text-center">
@@ -194,7 +218,9 @@ export default function Dashboard() {
 																	<AlertDialogCancel>
 																		Cancelar
 																	</AlertDialogCancel>
-																	<AlertDialogAction>
+																	<AlertDialogAction
+																		onClick={() => deleteProduct(product.id)}
+																	>
 																		Si, eliminar
 																	</AlertDialogAction>
 																</AlertDialogFooter>
