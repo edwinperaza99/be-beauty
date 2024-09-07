@@ -3,6 +3,7 @@
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { Ellipsis } from "lucide-react";
 
 import {
 	Table,
@@ -14,6 +15,15 @@ import {
 	TableFooter,
 	TableRow,
 } from "@/components/ui/table";
+
+import {
+	DropdownMenu,
+	DropdownMenuContent,
+	DropdownMenuItem,
+	DropdownMenuLabel,
+	DropdownMenuSeparator,
+	DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 
 interface Product {
 	id: string;
@@ -86,15 +96,17 @@ export default function Dashboard() {
 							<TableCaption>Lista de todos tus productos</TableCaption>
 							<TableHeader>
 								<TableRow>
-									<TableHead className="hidden lg:block">ID</TableHead>
+									<TableHead className="hidden lg:table-cell w-[100px]">
+										ID
+									</TableHead>
 									<TableHead>Nombre</TableHead>
-									<TableHead className="hidden md:block">
+									<TableHead className="hidden md:table-cell">
 										Precio de Venta
 									</TableHead>
-									<TableHead className="hidden md:block">
+									<TableHead className="hidden lg:table-cell">
 										Precio de Compra
 									</TableHead>
-									<TableHead>Stock</TableHead>
+									<TableHead className="hidden md:table-cell">Stock</TableHead>
 									<TableHead>Status</TableHead>
 									<TableHead className="text-right">Acciones</TableHead>
 								</TableRow>
@@ -102,28 +114,45 @@ export default function Dashboard() {
 							<TableBody>
 								{products.map((product) => (
 									<TableRow key={product.id}>
-										<TableCell className="hidden lg:block">
+										<TableCell className="hidden lg:table-cell">
 											{product.id}
 										</TableCell>
 										<TableCell>{product.name}</TableCell>
-										<TableCell className="hidden md:block">
+										<TableCell className="hidden md:table-cell">
 											{product.selling_price
 												? `$${product.selling_price.toFixed(2)}`
 												: "N/A"}
 										</TableCell>
-										<TableCell className="hidden md:block">
+										<TableCell className="hidden lg:table-cell">
 											{product.purchase_price
 												? `$${product.purchase_price.toFixed(2)}`
 												: "N/A"}
 										</TableCell>
-										<TableCell>{product.stock_qty ?? "N/A"}</TableCell>
+										<TableCell className="hidden md:table-cell">
+											{product.stock_qty ?? "N/A"}
+										</TableCell>
 										<TableCell>
 											{product.active ? "Activo" : "Inactivo"}
 										</TableCell>
 										<TableCell className="text-right">
-											<Button variant="outline" size="sm">
-												Editar
-											</Button>
+											<DropdownMenu>
+												<DropdownMenuTrigger asChild>
+													<Button variant="outline" size="sm">
+														<Ellipsis />
+													</Button>
+												</DropdownMenuTrigger>
+												<DropdownMenuContent className="text-center">
+													<DropdownMenuLabel className="font-black">
+														Acciones
+													</DropdownMenuLabel>
+													<DropdownMenuSeparator />
+													<DropdownMenuItem>Editar</DropdownMenuItem>
+													<DropdownMenuItem>Eliminar</DropdownMenuItem>
+													<DropdownMenuItem>
+														{product.active ? "Desactivar" : "Activar"}
+													</DropdownMenuItem>
+												</DropdownMenuContent>
+											</DropdownMenu>
 										</TableCell>
 									</TableRow>
 								))}
