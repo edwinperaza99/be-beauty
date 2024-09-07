@@ -24,7 +24,7 @@ export default function Productos() {
 	}, []);
 	return (
 		<>
-			<main className="mt-[80px] md:mt-[120px] min-h-[calc(100dvh-80px)]">
+			<main className="pt-[80px] md:mt-[120px] min-h-[calc(100dvh-80px)]">
 				<section className="flex flex-col items-center">
 					<h1 className="text-4xl font-bold">Nuestros mejores productos</h1>
 					<p className="text-lg">
@@ -33,7 +33,7 @@ export default function Productos() {
 					</p>
 				</section>
 				{/* products cards  */}
-				<section className="container-sm md:container max-w-fit grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 md:gap-4 mt-6 mx-2">
+				<section className="container-sm md:container max-w-fit grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 md:gap-4 mx-2">
 					{products.length > 0 ? (
 						products.map((product: Product) => (
 							<article
