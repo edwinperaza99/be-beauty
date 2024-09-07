@@ -5,6 +5,7 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { nullable, z } from "zod";
 import Link from "next/link";
+import toast from "react-hot-toast";
 
 import { Button } from "@/components/ui/button";
 import {
@@ -80,10 +81,12 @@ export default function AddForm() {
 			.then((response) => response.json())
 			.then((data) => {
 				console.log("Product created successfully:", data);
+				toast.success("Producto creado exitosamente");
 				// TODO: Handle successful product creation, either navigate to a new page or show a success message
 			})
 			.catch((error) => {
 				console.error("Error creating product:", error);
+				toast.error("Error al crear el producto");
 				// Handle the error, show an error message, etc.
 			});
 		setIsLoading(false); // Reset loading state
