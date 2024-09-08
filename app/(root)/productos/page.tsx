@@ -41,6 +41,7 @@ export default function Productos() {
 								className="shadow-sm hover:shadow-lg overflow-hidden h-auto w-full max-w-xs bg-white"
 							>
 								<div className="h-48">
+									{/* TODO: change to next image once images are standarized  */}
 									<img
 										src={product.image_url}
 										alt={product.name}
