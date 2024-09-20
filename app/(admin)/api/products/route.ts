@@ -4,7 +4,7 @@
 
 import { prisma } from "@/lib/prisma";
 
-export async function POST(req: Request): Promise<Response> {
+export async function PUT(req: Request): Promise<Response> {
 	const {
 		name,
 		description,
@@ -148,7 +148,7 @@ export async function PATCH(req: Request): Promise<Response> {
 	}
 }
 
-export async function PUT(req: Request): Promise<Response> {
+export async function POST(req: Request): Promise<Response> {
 	const url = new URL(req.url);
 	const id = url.searchParams.get("id");
 

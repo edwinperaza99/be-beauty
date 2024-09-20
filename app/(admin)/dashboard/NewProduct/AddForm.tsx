@@ -72,7 +72,7 @@ export default function AddForm() {
 	function onSubmit(values: z.infer<typeof formSchema>) {
 		setIsLoading(true);
 		fetch("/api/products", {
-			method: "POST",
+			method: "PUT",
 			headers: {
 				"Content-Type": "application/json",
 			},

@@ -77,7 +77,7 @@ export default function EditProduct() {
 		if (!product) return;
 
 		fetch(`/api/products?id=${product.id}`, {
-			method: "PUT",
+			method: "POST",
 			headers: {
 				"Content-Type": "application/json",
 			},
