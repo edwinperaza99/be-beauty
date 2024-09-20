@@ -147,3 +147,67 @@ export async function PATCH(req: Request): Promise<Response> {
 		});
 	}
 }
+
+export async function PUT(req: Request): Promise<Response> {
+	const url = new URL(req.url);
+	const id = url.searchParams.get("id");
+
+	if (!id) {
+		return new Response(JSON.stringify({ error: "ID is required" }), {
+			status: 400,
+			headers: { "Content-Type": "application/json" },
+		});
+	}
+
+	// Parse the request body to get updated product data
+	const {
+		name,
+		description,
+		selling_price,
+		purchase_price,
+		image_url,
+		stock_qty,
+		barcode,
+		categories = [],
+	} = await req.json();
+
+	try {
+		// Find the existing product to make sure it exists
+		const existingProduct = await prisma.product.findUnique({
+			where: { id },
+		});
+
+		if (!existingProduct) {
+			return new Response(JSON.stringify({ error: "Product not found" }), {
+				status: 404,
+				headers: { "Content-Type": "application/json" },
+			});
+		}
+
+		// Update the product in the database
+		const updatedProduct = await prisma.product.update({
+			where: { id },
+			data: {
+				name,
+				description,
+				selling_price,
+				purchase_price,
+				image_url,
+				stock_qty,
+				barcode,
+				categories,
+			},
+		});
+
+		return new Response(JSON.stringify(updatedProduct), {
+			status: 200,
+			headers: { "Content-Type": "application/json" },
+		});
+	} catch (error) {
+		console.error("Failed to update product:", error);
+		return new Response(JSON.stringify({ error: "Failed to update product" }), {
+			status: 500,
+			headers: { "Content-Type": "application/json" },
+		});
+	}
+}
