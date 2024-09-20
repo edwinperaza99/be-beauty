@@ -206,10 +206,17 @@ export default function Dashboard() {
 													</DropdownMenuLabel>
 													<DropdownMenuSeparator />
 													<DropdownMenuItem>
-														<div className="flex flex-row gap-2 items-center">
-															<Pencil size={16} />
-															Editar
-														</div>
+														<Link
+															href={{
+																pathname: `/dashboard/EditProduct`,
+																query: { product: JSON.stringify(product) }, // Pass the product ID as a query parameter
+															}}
+														>
+															<div className="flex flex-row gap-2 items-center">
+																<Pencil size={16} />
+																Editar
+															</div>
+														</Link>
 													</DropdownMenuItem>
 													<DropdownMenuItem>
 														<AlertDialog>
