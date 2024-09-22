@@ -24,8 +24,8 @@ export default function Productos() {
 	}, []);
 	return (
 		<>
-			<main className="pt-[80px] md:mt-[120px] min-h-[calc(100dvh-80px)]">
-				<section className="flex flex-col items-center">
+			<main className="md:mt-[120px] min-h-[calc(100dvh-80px)]">
+				<section className="products-section flex flex-col items-center">
 					<h1 className="text-4xl font-bold">Nuestros mejores productos</h1>
 					<p className="text-lg">
 						Bienvenido al lugar donde encontraras todos los productos que
