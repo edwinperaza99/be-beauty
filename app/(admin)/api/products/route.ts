@@ -4,7 +4,7 @@
 
 import { prisma } from "@/lib/prisma";
 
-export async function PUT(req: Request): Promise<Response> {
+export async function POST(req: Request): Promise<Response> {
 	const {
 		name,
 		description,
@@ -46,21 +46,38 @@ export async function PUT(req: Request): Promise<Response> {
 export async function GET(req: Request): Promise<Response> {
 	try {
 		const url = new URL(req.url);
+		const id = url.searchParams.get("id");
 		const activeParam = url.searchParams.get("active");
 
-		// If activeParam is 'true', filter by active products only
-		const isActive = activeParam === "true";
+		if (id) {
+			// If 'id' is provided, fetch a single product by id
+			const product = await prisma.product.findUnique({
+				where: { id },
+			});
 
-		const products = await prisma.product.findMany({
-			// If isActive is true, only return active products
-			// Otherwise, return all products
-			where: isActive ? { active: true } : undefined,
-		});
+			if (!product) {
+				return new Response(JSON.stringify({ error: "Product not found" }), {
+					status: 404,
+					headers: { "Content-Type": "application/json" },
+				});
+			}
 
-		return new Response(JSON.stringify(products), {
-			status: 200,
-			headers: { "Content-Type": "application/json" },
-		});
+			return new Response(JSON.stringify(product), {
+				status: 200,
+				headers: { "Content-Type": "application/json" },
+			});
+		} else {
+			// Otherwise, fetch all products, optionally filtering by active status
+			const isActive = activeParam === "true";
+			const products = await prisma.product.findMany({
+				where: isActive ? { active: true } : undefined,
+			});
+
+			return new Response(JSON.stringify(products), {
+				status: 200,
+				headers: { "Content-Type": "application/json" },
+			});
+		}
 	} catch (error) {
 		console.error("Failed to retrieve products:", error);
 		return new Response(
@@ -148,7 +165,7 @@ export async function PATCH(req: Request): Promise<Response> {
 	}
 }
 
-export async function POST(req: Request): Promise<Response> {
+export async function PUT(req: Request): Promise<Response> {
 	const url = new URL(req.url);
 	const id = url.searchParams.get("id");
 

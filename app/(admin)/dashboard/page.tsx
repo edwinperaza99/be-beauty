@@ -206,12 +206,13 @@ export default function Dashboard() {
 													</DropdownMenuLabel>
 													<DropdownMenuSeparator />
 													<DropdownMenuItem>
-														<Link
+														{/* <Link
 															href={{
 																pathname: `/dashboard/EditProduct`,
 																query: { product: JSON.stringify(product) }, // Pass the product ID as a query parameter
 															}}
-														>
+														> */}
+                                                        <Link href={`/dashboard/edit/${product.id}`}>
 															<div className="flex flex-row gap-2 items-center">
 																<Pencil size={16} />
 																Editar
