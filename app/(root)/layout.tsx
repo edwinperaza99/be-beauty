@@ -22,7 +22,7 @@ export default function RootLayout({
 	children: React.ReactNode;
 }>) {
 	return (
-		<html lang="en" className={libreBaskerville.className}>
+		<html lang="es" className={`${libreBaskerville.className} bg-black`}>
 			<body className="">
 				<div className="min-h-[calc(100vh-80px)]">
 					<NavBar />

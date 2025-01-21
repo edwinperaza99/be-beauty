@@ -25,7 +25,7 @@ export default function Home() {
 								href="https://api.whatsapp.com/send/?phone=50372951072&text&type=phone_number&app_absent=0"
 								target="_blank"
 								rel="noopener noreferrer"
-								className="text-lg p-2 text-white bg-[#CCD580]"
+								className="text-lg p-2 text-white bg-[#CCD580] hover:bg-[#191b16] transition-colors"
 							>
 								Haz tu cita
 							</Link>
@@ -82,8 +82,11 @@ export default function Home() {
 						</div>
 					</article>
 					<div className="flex justify-center">
-						<Link href="" className="py-2 px-8 bg-[#CCD580] text-white">
-							Mas
+						<Link
+							href="/servicios"
+							className="py-2 px-8 bg-[#CCD580] text-white hover:bg-[#191b16] transition-colors"
+						>
+							Más
 						</Link>
 					</div>
 				</section>

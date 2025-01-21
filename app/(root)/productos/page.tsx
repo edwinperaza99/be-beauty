@@ -24,7 +24,8 @@ export default function Productos() {
 	}, []);
 	return (
 		<>
-			<main className="md:mt-[120px] min-h-[calc(100dvh-80px)]">
+			<div className="h-[80px] md:h-[120px] bg-black"></div>
+			<main className="min-h-[calc(100dvh-80px)]">
 				<section className="products-section flex flex-col items-center">
 					<h1 className="text-4xl font-bold">Nuestros mejores productos</h1>
 					<p className="text-lg">

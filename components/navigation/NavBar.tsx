@@ -28,18 +28,27 @@ export default function NavBar() {
 				</a>
 				<ul className="hidden md:flex justify-center">
 					<li>
-						<Link href="/servicios" className="p-4 hover:text-green-300">
+						<Link
+							href="/servicios"
+							className="p-4 hover:text-green-300 transition-colors"
+						>
 							Servicios
 						</Link>
 					</li>
 					<li>
-						<Link href="/productos" className="p-4 hover:text-green-300">
+						<Link
+							href="/productos"
+							className="p-4 hover:text-green-300 transition-colors"
+						>
 							Productos
 						</Link>
 					</li>
 					<li>
-						<Link href="/staff" className="p-4 hover:text-green-300">
-							Staff
+						<Link
+							href="/promociones"
+							className="p-4 hover:text-green-300 transition-colors"
+						>
+							Promociones
 						</Link>
 					</li>
 				</ul>
@@ -50,7 +59,7 @@ export default function NavBar() {
 							href="https://www.instagram.com/nataliasalones/"
 							target="_blank"
 							rel="noopener noreferrer"
-							className="hover:text-green-300 text-2xl p-2"
+							className="hover:text-green-300 text-2xl p-2 transition-colors"
 						>
 							<FaInstagram />
 						</Link>
@@ -60,7 +69,7 @@ export default function NavBar() {
 							href="https://www.facebook.com/nataliasalones/"
 							target="_blank"
 							rel="noopener noreferrer"
-							className="hover:text-green-300 text-2xl p-2"
+							className="hover:text-green-300 text-2xl p-2 transition-colors"
 						>
 							<FaFacebook />
 						</Link>
@@ -70,7 +79,7 @@ export default function NavBar() {
 							href="https://api.whatsapp.com/send/?phone=50372951072&text&type=phone_number&app_absent=0"
 							target="_blank"
 							rel="noopener noreferrer"
-							className="hover:text-green-300 text-2xl p-2"
+							className="hover:text-green-300 text-2xl p-2 transition-colors"
 						>
 							<FaWhatsapp />
 						</Link>
@@ -109,7 +118,7 @@ export default function NavBar() {
 							<li>
 								<Link
 									href="/servicios"
-									className="p-4 hover:text-green-300"
+									className="p-4 hover:text-green-300 transition-colors"
 									onClick={toggleNavbar}
 								>
 									Servicios
@@ -118,7 +127,7 @@ export default function NavBar() {
 							<li>
 								<Link
 									href="/productos"
-									className="p-4 hover:text-green-300"
+									className="p-4 hover:text-green-300 transition-colors"
 									onClick={toggleNavbar}
 								>
 									Productos
@@ -126,11 +135,11 @@ export default function NavBar() {
 							</li>
 							<li>
 								<Link
-									href="/staff"
-									className="p-4 hover:text-green-300"
+									href="/promociones"
+									className="p-4 hover:text-green-300 transition-colors"
 									onClick={toggleNavbar}
 								>
-									Staff
+									Promociones
 								</Link>
 							</li>
 						</ul>
@@ -140,7 +149,7 @@ export default function NavBar() {
 									href="https://www.instagram.com/nataliasalones/"
 									target="_blank"
 									rel="noopener noreferrer"
-									className="p-2 hover:text-green-300 text-2xl"
+									className="p-2 hover:text-green-300 text-2xl transition-colors"
 								>
 									<FaInstagram />
 								</Link>
@@ -150,7 +159,7 @@ export default function NavBar() {
 									href="https://www.facebook.com/nataliasalones/"
 									target="_blank"
 									rel="noopener noreferrer"
-									className="p-2 hover:text-green-300 text-2xl"
+									className="p-2 hover:text-green-300 text-2xl transition-colors"
 								>
 									<FaFacebook />
 								</Link>
@@ -160,7 +169,7 @@ export default function NavBar() {
 									href="https://api.whatsapp.com/send/?phone=50372951072&text&type=phone_number&app_absent=0"
 									target="_blank"
 									rel="noopener noreferrer hover:text-green-300 text-2xl"
-									className="p-2 hover:text-green-300 text-2xl"
+									className="p-2 hover:text-green-300 text-2xl transition-colors"
 								>
 									<FaWhatsapp />
 								</Link>
