@@ -79,6 +79,7 @@ export default function NavBar() {
 
 				{/* hamburger menu button  */}
 				<button
+					title="Menu"
 					className="md:hidden group h-11 w-11 flex justify-center items-center"
 					onClick={toggleNavbar}
 				>
@@ -104,7 +105,7 @@ export default function NavBar() {
 				{/* mobile menu when toggled  */}
 				{isNavbarOpen && (
 					<div className="absolute top-full left-0 w-full bg-black/70">
-						<ul className="flex flex-col justify-center text-center pt-4 gap-2">
+						<ul className="flex flex-col justify-center text-center pt-4 gap-2 text-base">
 							<li>
 								<Link
 									href="/servicios"
@@ -133,7 +134,7 @@ export default function NavBar() {
 								</Link>
 							</li>
 						</ul>
-						<ul className="flex gap-2 justify-end mr-4">
+						<ul className="flex gap-2 justify-end mr-4 items-center">
 							<li>
 								<Link
 									href="https://www.instagram.com/nataliasalones/"
@@ -151,15 +152,15 @@ export default function NavBar() {
 									rel="noopener noreferrer"
 									className="p-2 hover:text-green-300 text-2xl"
 								>
-									<FaFacebook className="text-lg" />
+									<FaFacebook />
 								</Link>
 							</li>
 							<li>
 								<Link
 									href="https://api.whatsapp.com/send/?phone=50372951072&text&type=phone_number&app_absent=0"
-									className="p-2"
 									target="_blank"
 									rel="noopener noreferrer hover:text-green-300 text-2xl"
+									className="p-2 hover:text-green-300 text-2xl"
 								>
 									<FaWhatsapp />
 								</Link>
