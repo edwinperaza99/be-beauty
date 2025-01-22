@@ -1,3 +1,6 @@
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
+
 export default function Servicios() {
 	return (
 		<>
@@ -26,27 +29,33 @@ export default function Servicios() {
 						{[
 							{
 								title: "Manicure & Pedicure",
-								image: "https://placehold.co/600x400",
+								image:
+									"https://images.pexels.com/photos/887352/pexels-photo-887352.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
 							},
 							{
 								title: "Cuidado del Cabello",
-								image: "https://placehold.co/600x400",
+								image:
+									"https://images.pexels.com/photos/3065209/pexels-photo-3065209.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
 							},
 							{
 								title: "Tratamientos Faciales",
-								image: "https://placehold.co/600x400",
+								image:
+									"https://images.pexels.com/photos/3762642/pexels-photo-3762642.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
 							},
 							{
 								title: "Maquillaje Profesional",
-								image: "https://placehold.co/600x400",
+								image:
+									"https://images.pexels.com/photos/1383537/pexels-photo-1383537.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
 							},
 							{
 								title: "Corte de Cabello",
-								image: "https://placehold.co/600x400",
+								image:
+									"https://images.pexels.com/photos/7755216/pexels-photo-7755216.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
 							},
 							{
 								title: "Masajes Relajantes",
-								image: "https://placehold.co/600x400",
+								image:
+									"https://images.pexels.com/photos/3757952/pexels-photo-3757952.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
 							},
 						].map((service, index) => (
 							<div
@@ -78,6 +87,16 @@ export default function Servicios() {
 							Déjanos consentirte con nuestros servicios de primera calidad. Tu
 							bienestar y satisfacción son nuestra prioridad.
 						</p>
+						<Button asChild className=" bg-[#CCD580] mt-4">
+							<Link
+								href="https://api.whatsapp.com/send/?phone=50372951072&text&type=phone_number&app_absent=0"
+								target="_blank"
+								rel="noopener noreferrer"
+								className="text-2xl"
+							>
+								Haz tu cita
+							</Link>
+						</Button>
 					</div>
 				</section>
 			</main>

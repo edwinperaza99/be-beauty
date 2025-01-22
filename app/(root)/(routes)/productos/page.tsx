@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import "@/app/(root)/index.css";
 import ProductCard from "@/components/ProductCard";
 
 export interface Product {
