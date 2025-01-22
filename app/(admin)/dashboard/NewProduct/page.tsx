@@ -1,7 +1,6 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
-import AddForm from "./AddForm";
+import AddForm from "@/app/(admin)/dashboard/NewProduct/AddForm";
 import { Toaster } from "react-hot-toast";
 
 export default function Dashboard() {

@@ -3,7 +3,7 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
-import { nullable, z } from "zod";
+import { z } from "zod";
 import Link from "next/link";
 import toast from "react-hot-toast";
 

@@ -1,9 +1,8 @@
+import { Sentimiento } from "@/components/AnimatedSVG";
+import { Contactanos } from "@/components/Contactanos";
+import salon_inside from "@/public/salon.jpg";
 import Image from "next/image";
 import Link from "next/link";
-import { Licorice } from "next/font/google";
-import salon_inside from "@/public/salon.jpg";
-import { Contactanos } from "@/components/Contactanos";
-import { Sentimiento } from "@/components/AnimatedSVG";
 
 export default function Home() {
 	return (

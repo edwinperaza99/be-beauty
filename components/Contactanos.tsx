@@ -1,27 +1,23 @@
+import Map from "@/components/map/Map";
 import {
 	Accordion,
 	AccordionContent,
 	AccordionItem,
 	AccordionTrigger,
 } from "@/components/ui/accordion";
-
 import {
 	Popover,
 	PopoverContent,
 	PopoverTrigger,
 } from "@/components/ui/popover";
-
 import { Separator } from "@/components/ui/separator";
-
-import Map from "./map/Map";
-
+import Link from "next/link";
 import {
-	FaWhatsapp,
 	FaFacebook,
 	FaInstagram,
 	FaPhoneAlt,
+	FaWhatsapp,
 } from "react-icons/fa";
-import Link from "next/link";
 
 export function Contactanos() {
 	return (

@@ -1,5 +1,4 @@
-import { MotionG, MotionPath, MotionSVG, draw } from "./motionUtils";
-
+import { draw, MotionG, MotionPath, MotionSVG } from "@/components/motionUtils";
 import { SVGMotionProps } from "framer-motion";
 
 const groupProps: SVGMotionProps<SVGGElement> = {

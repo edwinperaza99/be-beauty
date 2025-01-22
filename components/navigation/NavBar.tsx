@@ -4,7 +4,7 @@ import React from "react";
 import Link from "next/link";
 import { Roboto } from "next/font/google";
 import { FaWhatsapp, FaFacebook, FaInstagram } from "react-icons/fa";
-import { MotionHeader, slideInFromTop } from "../motionUtils";
+import { MotionHeader, slideInFromTop } from "@/components/motionUtils";
 
 const roboto = Roboto({ weight: "900", subsets: ["latin"] });
 
