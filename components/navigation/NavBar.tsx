@@ -4,6 +4,7 @@ import React from "react";
 import Link from "next/link";
 import { Roboto } from "next/font/google";
 import { FaWhatsapp, FaFacebook, FaInstagram } from "react-icons/fa";
+import { MotionHeader, slideInFromTop } from "../motionUtils";
 
 const roboto = Roboto({ weight: "900", subsets: ["latin"] });
 
@@ -14,7 +15,13 @@ export default function NavBar() {
 		setNavbarOpen(!isNavbarOpen);
 	};
 	return (
-		<header className="text-white w-full h-auto bg-black/70 fixed top-0 z-20">
+		<MotionHeader
+			variants={slideInFromTop}
+			initial="hidden"
+			animate="visible"
+			transition={{ duration: 0.5, ease: "easeInOut" }}
+			className="text-white w-full h-auto bg-black/70 fixed top-0 z-20"
+		>
 			<nav
 				// className="flex flex-row items-center justify-between py-4"
 				className="md:container mx-auto flex items-center justify-between p-4"
@@ -184,6 +191,6 @@ export default function NavBar() {
 					</div>
 				)}
 			</nav>
-		</header>
+		</MotionHeader>
 	);
 }

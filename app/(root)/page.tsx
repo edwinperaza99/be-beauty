@@ -3,8 +3,7 @@ import Link from "next/link";
 import { Licorice } from "next/font/google";
 import salon_inside from "@/public/salon.jpg";
 import { Contactanos } from "@/components/Contactanos";
-
-const licorice = Licorice({ weight: "400", subsets: ["latin"] });
+import { Sentimiento } from "@/components/AnimatedSVG";
 
 export default function Home() {
 	return (
@@ -17,7 +16,10 @@ export default function Home() {
 					<div className="hero">
 						<p className="text-4xl">Es más que cabello,</p>
 						<p className="text-4xl">
-							Es un <span className={licorice.className}>sentimiento</span>
+							Es un
+							<span className="pl-2 inline-block">
+								<Sentimiento width="170px" height="auto" />
+							</span>
 						</p>
 						<div>
 							<Link
