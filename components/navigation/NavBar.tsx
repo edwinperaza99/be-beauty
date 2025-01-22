@@ -1,7 +1,6 @@
 "use client";
 
 import React from "react";
-import Image from "next/image";
 import Link from "next/link";
 import { Roboto } from "next/font/google";
 import { FaWhatsapp, FaFacebook, FaInstagram } from "react-icons/fa";

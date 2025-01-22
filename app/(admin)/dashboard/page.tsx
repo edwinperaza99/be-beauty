@@ -172,7 +172,12 @@ export default function Dashboard() {
 							</TableHeader>
 							<TableBody>
 								{products.map((product) => (
-									<TableRow key={product.id}>
+									<TableRow
+										key={product.id}
+										className={`${
+											product.active ? "" : "bg-red-500 hover:bg-red-600"
+										}`}
+									>
 										<TableCell className="hidden lg:table-cell">
 											{product.id}
 										</TableCell>
@@ -212,7 +217,7 @@ export default function Dashboard() {
 																query: { product: JSON.stringify(product) }, // Pass the product ID as a query parameter
 															}}
 														> */}
-                                                        <Link href={`/dashboard/edit/${product.id}`}>
+														<Link href={`/dashboard/edit/${product.id}`}>
 															<div className="flex flex-row gap-2 items-center">
 																<Pencil size={16} />
 																Editar
