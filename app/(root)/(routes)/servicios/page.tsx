@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Servicios() {
 	return (
@@ -7,14 +8,15 @@ export default function Servicios() {
 			<main className="bg-gray-100">
 				{/* Landing Section */}
 				<section
-					className="relative h-screen bg-[url('https://images.pexels.com/photos/247287/pexels-photo-247287.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2')] bg-cover bg-center flex items-center justify-center text-white"
+					className="relative min-h-[calc(100vh-80px)] bg-[url('https://images.pexels.com/photos/247287/pexels-photo-247287.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2')] bg-cover bg-center flex items-center justify-center text-white"
 					id="landing"
 				>
 					<div className="text-center px-4">
 						<h1 className="text-5xl font-bold mb-4">Nuestros Servicios</h1>
 						<p className="text-lg max-w-2xl mx-auto">
-							Explora nuestros servicios exclusivos diseñados para realzar tu
-							belleza y bienestar.
+							Cuidamos cada detalle para que tu experiencia sea única. Descubre
+							nuestros servicios exclusivos diseñados para realzar tu belleza y
+							bienestar.
 						</p>
 					</div>
 				</section>
@@ -22,7 +24,7 @@ export default function Servicios() {
 				{/* Services Section */}
 				<section className="py-16 px-4 max-w-screen-2xl">
 					<h2 className="text-4xl font-bold text-center mb-12">
-						Nuestros Servicios
+						¿Qué ofrecemos?
 					</h2>
 					<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
 						{/* Service Cards */}
@@ -62,12 +64,15 @@ export default function Servicios() {
 								key={index}
 								className="group relative bg-gray-200 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300"
 							>
-								<img
-									src={service.image}
-									alt={service.title}
-									className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
-								/>
-								<div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+								<div className="w-full h-64">
+									<Image
+										src={service.image}
+										alt={service.title}
+										layout="fill"
+										className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
+									/>
+								</div>
+								<div className="absolute inset-0 bg-black/50 md:opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
 									<h3 className="text-2xl font-semibold text-white">
 										{service.title}
 									</h3>
@@ -80,12 +85,15 @@ export default function Servicios() {
 				{/* Parallax Section */}
 				<section className="relative h-screen bg-fixed bg-[url('https://images.pexels.com/photos/1027092/pexels-photo-1027092.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2')] bg-cover bg-center flex items-center justify-center text-white">
 					<div className="text-center px-4">
-						<h2 className="text-4xl font-bold mb-4">
+						{/* <h2 className="text-4xl font-bold mb-4">
 							Tu Belleza, Nuestra Pasión
+						</h2> */}
+						<h2 className="text-4xl font-bold mb-4">
+							Resalta Tu Belleza Natural
 						</h2>
 						<p className="text-lg max-w-2xl mx-auto">
-							Déjanos consentirte con nuestros servicios de primera calidad. Tu
-							bienestar y satisfacción son nuestra prioridad.
+							Confía en nuestras manos expertas para brindarte el cuidado que
+							necesitas. Agenda una cita y vive una experiencia inolvidable.
 						</p>
 						<Button asChild className=" bg-[#CCD580] mt-4">
 							<Link
