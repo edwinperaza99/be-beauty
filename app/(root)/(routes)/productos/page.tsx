@@ -13,15 +13,33 @@ export interface Product {
 
 export default function Productos() {
 	const [products, setProducts] = useState<Product[]>([]);
+	const [filteredProducts, setFilteredProducts] = useState<Product[]>([]);
+	const [searchQuery, setSearchQuery] = useState("");
 
 	useEffect(() => {
 		fetch("/api/products?active=true", {
 			method: "GET",
 		})
 			.then((response) => response.json())
-			.then((data) => setProducts(data))
+			.then((data) => {
+				setProducts(data);
+				setFilteredProducts(data); // Initialize filteredProducts with all products
+			})
 			.catch((error) => console.error("Error fetching products:", error));
 	}, []);
+
+	// Update filtered products based on search query
+	useEffect(() => {
+		if (searchQuery.trim() === "") {
+			setFilteredProducts(products);
+		} else {
+			setFilteredProducts(
+				products.filter((product) =>
+					product.name.toLowerCase().includes(searchQuery.toLowerCase())
+				)
+			);
+		}
+	}, [searchQuery, products]);
 
 	return (
 		<>
@@ -42,17 +60,27 @@ export default function Productos() {
 
 				{/* Products Section */}
 				<section className="py-10">
-					<h2 className="text-3xl font-semibold text-center mb-8">
+					<h2 className="text-3xl font-semibold text-center mb-2">
 						Descubre Nuestros Productos
 					</h2>
+					{/* Search Bar */}
+					<div className="max-w-2xl mx-auto mb-8">
+						<input
+							type="text"
+							placeholder="Buscar productos..."
+							value={searchQuery}
+							onChange={(e) => setSearchQuery(e.target.value)}
+							className="w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+						/>
+					</div>
 					<div className="container grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mx-auto px-4">
-						{products.length > 0 ? (
-							products.map((product: Product) => (
+						{filteredProducts.length > 0 ? (
+							filteredProducts.map((product: Product) => (
 								<ProductCard key={product.id} product={product} />
 							))
 						) : (
 							<p className="text-center col-span-full text-gray-600">
-								No hay productos disponibles
+								No hay productos que coincidan con tu búsqueda.
 							</p>
 						)}
 					</div>

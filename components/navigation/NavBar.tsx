@@ -21,10 +21,17 @@ export default function NavBar() {
 				// id="navbar"
 			>
 				{/* <Image src="/logo.png" alt="Be Beauty" width={100} height={100} /> */}
-				<a href="/#start" className={(roboto.className, "justify-start")}>
-					<h1 className="text-xl md:text-4xl">NATALIA</h1>
-					<h2 className="text-sm md:text-md">SALON & BEAUTY SUPPLY</h2>
-				</a>
+				<Link
+					href="/#start"
+					className={(roboto.className, "group justify-start")}
+				>
+					<h1 className="text-xl md:text-4xl group-hover:text-green-300 transition-colors duration-300">
+						NATALIA
+					</h1>
+					<h2 className="text-sm md:text-md group-hover:text-green-300 transition-colors duration-300">
+						SALON & BEAUTY SUPPLY
+					</h2>
+				</Link>
 				<ul className="hidden md:flex justify-center">
 					<li>
 						<Link
