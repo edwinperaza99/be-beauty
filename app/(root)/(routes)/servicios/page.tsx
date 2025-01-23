@@ -1,8 +1,80 @@
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import Image from "next/image";
+import {
+	fadeInOut,
+	MotionDiv,
+	MotionH1,
+	MotionH2,
+	slideInFromBottom,
+	MotionP,
+} from "@/components/motionUtils";
+
+type Service = {
+	delay: number;
+	title: string;
+	image: string;
+};
+
+const ServiceCard = ({ title, image, delay }: Service) => {
+	return (
+		<MotionDiv
+			variants={slideInFromBottom}
+			initial="hidden"
+			whileInView="visible"
+			viewport={{ once: true, amount: 0.5 }}
+			transition={{ duration: 0.5, delay: delay }}
+			className="group relative bg-gray-200 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300"
+		>
+			<div className="w-full h-64">
+				<Image
+					src={image}
+					alt={title}
+					layout="fill"
+					className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
+				/>
+			</div>
+			<div className="absolute inset-0 bg-black/50 md:opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+				<h3 className="text-2xl font-semibold text-white">{title}</h3>
+			</div>
+		</MotionDiv>
+	);
+};
 
 export default function Servicios() {
+	const services = [
+		{
+			title: "Manicure & Pedicure",
+			image:
+				"https://images.pexels.com/photos/887352/pexels-photo-887352.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+		},
+		{
+			title: "Cuidado del Cabello",
+			image:
+				"https://images.pexels.com/photos/3065209/pexels-photo-3065209.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+		},
+		{
+			title: "Tratamientos Faciales",
+			image:
+				"https://images.pexels.com/photos/3762642/pexels-photo-3762642.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+		},
+		{
+			title: "Maquillaje Profesional",
+			image:
+				"https://images.pexels.com/photos/1383537/pexels-photo-1383537.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+		},
+		{
+			title: "Corte de Cabello",
+			image:
+				"https://images.pexels.com/photos/7755216/pexels-photo-7755216.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+		},
+		{
+			title: "Masajes Relajantes",
+			image:
+				"https://images.pexels.com/photos/3757952/pexels-photo-3757952.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+		},
+	];
+
 	return (
 		<>
 			<main className="bg-gray-100">
@@ -12,79 +84,61 @@ export default function Servicios() {
 					id="landing"
 				>
 					<div className="text-center px-4">
-						<h1 className="text-5xl font-bold mb-4">Nuestros Servicios</h1>
-						<p className="text-lg max-w-2xl mx-auto">
+						<MotionH1
+							variants={fadeInOut}
+							initial="hidden"
+							whileInView="visible"
+							viewport={{ once: true, amount: 0.5 }}
+							transition={{ duration: 0.5, delay: 0.2 }}
+							className="text-5xl font-bold mb-4"
+						>
+							Nuestros Servicios
+						</MotionH1>
+						<MotionP
+							variants={slideInFromBottom}
+							initial="hidden"
+							whileInView="visible"
+							viewport={{ once: true, amount: 0.5 }}
+							transition={{ duration: 0.7, delay: 0.4 }}
+							className="text-lg max-w-2xl mx-auto"
+						>
 							Cuidamos cada detalle para que tu experiencia sea única. Descubre
 							nuestros servicios exclusivos diseñados para realzar tu belleza y
 							bienestar.
-						</p>
+						</MotionP>
 					</div>
 				</section>
 
 				{/* Services Section */}
 				<section className="py-16 px-4 max-w-screen-2xl">
-					<h2 className="text-4xl font-bold text-center mb-12">
+					<MotionH2
+						variants={slideInFromBottom}
+						initial="hidden"
+						whileInView="visible"
+						viewport={{ once: true, amount: 0.5 }}
+						transition={{ duration: 0.5, delay: 0.2 }}
+						className="text-4xl font-bold text-center mb-12"
+					>
 						¿Qué ofrecemos?
-					</h2>
+					</MotionH2>
 					<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
 						{/* Service Cards */}
-						{[
-							{
-								title: "Manicure & Pedicure",
-								image:
-									"https://images.pexels.com/photos/887352/pexels-photo-887352.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-							},
-							{
-								title: "Cuidado del Cabello",
-								image:
-									"https://images.pexels.com/photos/3065209/pexels-photo-3065209.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-							},
-							{
-								title: "Tratamientos Faciales",
-								image:
-									"https://images.pexels.com/photos/3762642/pexels-photo-3762642.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-							},
-							{
-								title: "Maquillaje Profesional",
-								image:
-									"https://images.pexels.com/photos/1383537/pexels-photo-1383537.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-							},
-							{
-								title: "Corte de Cabello",
-								image:
-									"https://images.pexels.com/photos/7755216/pexels-photo-7755216.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-							},
-							{
-								title: "Masajes Relajantes",
-								image:
-									"https://images.pexels.com/photos/3757952/pexels-photo-3757952.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-							},
-						].map((service, index) => (
-							<div
-								key={index}
-								className="group relative bg-gray-200 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300"
-							>
-								<div className="w-full h-64">
-									<Image
-										src={service.image}
-										alt={service.title}
-										layout="fill"
-										className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
-									/>
-								</div>
-								<div className="absolute inset-0 bg-black/50 md:opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-									<h3 className="text-2xl font-semibold text-white">
-										{service.title}
-									</h3>
-								</div>
-							</div>
+						{services.map((service, index) => (
+							<ServiceCard key={index} {...service} delay={index * 0.2} />
 						))}
 					</div>
 				</section>
 
 				{/* Parallax Section */}
 				<section className="relative h-screen bg-fixed bg-[url('https://images.pexels.com/photos/1027092/pexels-photo-1027092.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2')] bg-cover bg-center flex items-center justify-center text-white">
-					<div className="text-center px-4">
+					<MotionDiv
+						variants={fadeInOut}
+						initial="hidden"
+						whileInView="visible"
+						viewport={{ once: true, amount: 0.1 }}
+						transition={{ duration: 0.5, delay: 0.2 }}
+						className="text-center px-4"
+					>
 						{/* <h2 className="text-4xl font-bold mb-4">
 							Tu Belleza, Nuestra Pasión
 						</h2> */}
@@ -105,7 +159,7 @@ export default function Servicios() {
 								Haz tu cita
 							</Link>
 						</Button>
-					</div>
+					</MotionDiv>
 				</section>
 			</main>
 		</>
