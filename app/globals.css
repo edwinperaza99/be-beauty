@@ -79,52 +79,9 @@ html {
 	background-size: cover;
 	background-position: center;
 	background-repeat: no-repeat;
-	height: 100dvh;
-	width: 100%;
-	position: relative;
-	/* align-items: center; */
-	justify-content: center;
-}
-
-.hero {
-	display: flex;
-	flex-direction: column;
-	min-width: 800px;
-	margin: 0 auto;
-	gap: 0.5em;
-}
-
-@media (max-width: 850px) {
-	.hero {
-		margin: 0 20px;
-		font-size: 0.6rem;
-	}
-}
-
-#services {
-	max-width: 800px;
-	margin: 0 auto;
-}
-
-.contactanos {
-	max-width: 800px;
-	margin: 0 auto;
-}
-
-.phrase-section-image {
-	object-fit: cover;
-	/* width: 100%; */
-	max-height: 90%;
-	max-width: 100%;
-	opacity: 0.2;
-	object-position: center;
 }
 
 .contact-image-container {
-	width: 300px;
-	/* height: 500px; */
-	position: relative;
 	border-top-left-radius: 45%;
 	border-top-right-radius: 45%;
-	overflow: hidden;
 }
