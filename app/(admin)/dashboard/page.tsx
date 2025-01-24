@@ -7,7 +7,7 @@ import { Ellipsis, Pencil, Trash2, CirclePower } from "lucide-react";
 import toast, { Toaster } from "react-hot-toast";
 
 import { useSession, signOut } from "next-auth/react";
-import { redirect } from "next/navigation";
+import { useRouter } from "next/navigation";
 
 import {
 	Table,
@@ -54,13 +54,17 @@ interface Product {
 
 export default function Dashboard() {
 	const { data: session, status } = useSession();
-
-	if (!session) {
-		return redirect("/sign-in");
-	}
+	const router = useRouter();
 
 	const [products, setProducts] = useState<Product[]>([]);
 	const [loading, setLoading] = useState(true);
+
+	// Redirect unauthenticated users
+	useEffect(() => {
+		if (status === "unauthenticated") {
+			router.push("/sign-in");
+		}
+	}, [status, router]);
 
 	function deleteProduct(id: string) {
 		fetch(`/api/products?id=${id}`, {
@@ -105,20 +109,28 @@ export default function Dashboard() {
 			});
 	}
 
+	// Fetch products when authenticated
 	useEffect(() => {
-		fetch("/api/products", {
-			method: "GET",
-		})
-			.then((response) => response.json())
-			.then((data) => {
-				setProducts(data);
-				setLoading(false);
+		if (status === "authenticated") {
+			fetch("/api/products", {
+				method: "GET",
 			})
-			.catch((error) => {
-				console.error("Error fetching products:", error);
-				setLoading(false);
-			});
-	}, []);
+				.then((response) => response.json())
+				.then((data) => {
+					setProducts(data);
+					setLoading(false);
+				})
+				.catch((error) => {
+					console.error("Error fetching products:", error);
+					setLoading(false);
+				});
+		}
+	}, [status]);
+
+	if (status === "loading") {
+		return <p>Loading...</p>;
+	}
+
 	return (
 		<>
 			<main className="mx-auto gap-4 mt-14">
