@@ -3,7 +3,6 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Inter, Libre_Baskerville } from "next/font/google";
 import "@/app/globals.css";
 import SessionProvider from "@/components/SessionProvider";
-import { getServerSession } from "next-auth";
 import { authorizeAccess } from "@/lib/auth";
 import { redirect } from "next/navigation";
 
