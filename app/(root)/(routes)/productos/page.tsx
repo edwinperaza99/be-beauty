@@ -82,9 +82,9 @@ export default function Productos() {
 
 				{/* Products Section */}
 				<section className="pb-10">
-					<h2 className="text-3xl font-semibold text-center mb-2">
+					{/* <h2 className="text-3xl font-semibold text-center mb-2">
 						Descubre Nuestros Productos
-					</h2>
+					</h2> */}
 					{/* Search Bar */}
 					<div className="max-w-2xl mx-auto mb-8">
 						<Input

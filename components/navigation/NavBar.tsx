@@ -89,7 +89,7 @@ export default function NavBar() {
 							href="https://www.instagram.com/nataliasalones/"
 							target="_blank"
 							rel="noopener noreferrer"
-							className="hover:text-green-300 text-2xl p-2 transition-colors"
+							className="hover:text-main-300 text-2xl p-2 transition-colors"
 						>
 							<FaInstagram />
 						</Link>
@@ -99,7 +99,7 @@ export default function NavBar() {
 							href="https://www.facebook.com/nataliasalones/"
 							target="_blank"
 							rel="noopener noreferrer"
-							className="hover:text-green-300 text-2xl p-2 transition-colors"
+							className="hover:text-main-300 text-2xl p-2 transition-colors"
 						>
 							<FaFacebook />
 						</Link>
@@ -109,7 +109,7 @@ export default function NavBar() {
 							href="https://api.whatsapp.com/send/?phone=50372951072&text&type=phone_number&app_absent=0"
 							target="_blank"
 							rel="noopener noreferrer"
-							className="hover:text-green-300 text-2xl p-2 transition-colors"
+							className="hover:text-main-300 text-2xl p-2 transition-colors"
 						>
 							<FaWhatsapp />
 						</Link>

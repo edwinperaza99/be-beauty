@@ -100,7 +100,7 @@ export default function Servicios() {
 							whileInView="visible"
 							viewport={{ once: true, amount: 0.5 }}
 							transition={{ duration: 0.7, delay: 0.4 }}
-							className="text-lg max-w-2xl mx-auto"
+							className="text-lg max-w-2xl mx-auto text-gray-200"
 						>
 							Cuidamos cada detalle para que tu experiencia sea única. Descubre
 							nuestros servicios exclusivos diseñados para realzar tu belleza y

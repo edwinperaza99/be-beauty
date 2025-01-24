@@ -6,6 +6,9 @@ import { useEffect, useState } from "react";
 import { Ellipsis, Pencil, Trash2, CirclePower } from "lucide-react";
 import toast, { Toaster } from "react-hot-toast";
 
+import { useSession, signOut } from "next-auth/react";
+import { redirect } from "next/navigation";
+
 import {
 	Table,
 	TableBody,
@@ -50,6 +53,12 @@ interface Product {
 }
 
 export default function Dashboard() {
+	const { data: session, status } = useSession();
+
+	if (!session) {
+		return redirect("/sign-in");
+	}
+
 	const [products, setProducts] = useState<Product[]>([]);
 	const [loading, setLoading] = useState(true);
 
@@ -114,6 +123,11 @@ export default function Dashboard() {
 		<>
 			<main className="mx-auto gap-4 mt-14">
 				<Toaster />
+				{/* add sign out button */}
+				{status === "authenticated" && (
+					<Button onClick={() => signOut()}>Cerrar Sesión</Button>
+				)}
+
 				<section className="container flex flex-col items-center" id="landing">
 					<details className="text-lg container">
 						<summary className="text-4xl font-bold text-center">

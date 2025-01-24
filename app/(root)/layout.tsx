@@ -4,6 +4,8 @@ import { Inter, Libre_Baskerville } from "next/font/google";
 import "@/app/globals.css";
 import NavBar from "@/components/navigation/NavBar";
 import Footer from "@/components/Footer";
+import SessionProvider from "@/components/SessionProvider";
+import { getServerSession } from "next-auth";
 
 const inter = Inter({ subsets: ["latin"] });
 const libreBaskerville = Libre_Baskerville({
@@ -72,20 +74,24 @@ export const metadata: Metadata = {
 	},
 };
 
-export default function RootLayout({
+export default async function RootLayout({
 	children,
 }: Readonly<{
 	children: React.ReactNode;
 }>) {
+	const session = await getServerSession();
+
 	return (
 		<html lang="es" className={`${libreBaskerville.className} bg-black`}>
 			<body className="">
-				<div className="min-h-[calc(100vh-80px)]">
-					<NavBar />
-					{children}
-					<SpeedInsights />
-					<Footer />
-				</div>
+				<SessionProvider session={session}>
+					<div className="min-h-[calc(100vh-80px)]">
+						<NavBar />
+						{children}
+						<SpeedInsights />
+						<Footer />
+					</div>
+				</SessionProvider>
 			</body>
 		</html>
 	);
