@@ -55,7 +55,7 @@ export default function Home() {
 								href="https://api.whatsapp.com/send/?phone=50372951072&text&type=phone_number&app_absent=0"
 								target="_blank"
 								rel="noopener noreferrer"
-								className="text-lg p-2 text-white bg-[#CCD580] hover:bg-[#191b16] transition-colors"
+								className="text-lg p-2 text-white bg-main-300 hover:bg-main-500 transition-colors"
 							>
 								Haz tu cita
 							</Link>
@@ -157,13 +157,13 @@ export default function Home() {
 					>
 						<Link
 							href="/servicios"
-							className="py-2 px-8 bg-[#CCD580] text-white hover:bg-[#191b16] transition-colors"
+							className="py-2 px-8 bg-main-300 text-white hover:bg-main-500 transition-colors"
 						>
 							Más
 						</Link>
 					</MotionDiv>
 				</section>
-				<section className="bg-[#242921] flex justify-center items-center relative w-full h-[400px] md:h-[650px]">
+				<section className="bg-main-500 flex justify-center items-center relative w-full h-[400px] md:h-[650px]">
 					<Image
 						src={salon_inside}
 						alt=""
@@ -182,15 +182,15 @@ export default function Home() {
 						Be Beauty, <wbr /> Be You
 					</MotionDiv>
 				</section>
-				<div className="bg-[#191b16] h-12 md:h-20"></div>
-				<div className="bg-[#242921]">
+				<div className="bg-main-700 h-12 md:h-20"></div>
+				<div className="bg-main-500">
 					<MotionSection
 						variants={fadeInOut}
 						initial="hidden"
 						whileInView="visible"
 						viewport={{ once: true, amount: 0.3 }}
 						transition={{ duration: 0.8, delay: 0.4 }}
-						className="px-4 bg-[#242921] text-white py-8"
+						className="px-4 bg-main-500 text-white py-8"
 					>
 						<h2 className="text-4xl text-center py-2">CONTACTANOS</h2>
 						<article className="flex gap-4 md:gap-8 text-sm md:text-md space-between items-center max-w-4xl mx-auto">

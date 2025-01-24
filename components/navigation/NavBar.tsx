@@ -6,8 +6,37 @@ import { Roboto } from "next/font/google";
 import { FaWhatsapp, FaFacebook, FaInstagram } from "react-icons/fa";
 import { MotionHeader, slideInFromTop } from "@/components/motionUtils";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 
 const roboto = Roboto({ weight: "900", subsets: ["latin"] });
+
+interface NavLinkProps {
+	href: string;
+	children: React.ReactNode;
+	className?: string;
+	activeClassName?: string;
+}
+
+const NavLink: React.FC<NavLinkProps> = ({
+	href,
+	children,
+	className = "p-4 hover:text-main-300 transition-colors",
+	activeClassName = "text-main-300",
+}) => {
+	const pathname = usePathname();
+	const isActive = pathname === href;
+
+	return (
+		<Link
+			href={href}
+			className={`${className} ${
+				isActive ? activeClassName : ""
+			} transition-colors`}
+		>
+			{children}
+		</Link>
+	);
+};
 
 export default function NavBar() {
 	const [isNavbarOpen, setNavbarOpen] = React.useState(false);
@@ -23,54 +52,34 @@ export default function NavBar() {
 			transition={{ duration: 0.5, ease: "easeInOut" }}
 			className="text-white w-full h-auto bg-black/70 fixed top-0 z-20"
 		>
-			<nav
-				// className="flex flex-row items-center justify-between py-4"
-				className="md:container mx-auto flex items-center justify-between p-4"
-				// id="navbar"
-			>
-				{/* <Image src="/logo.png" alt="Be Beauty" width={100} height={100} /> */}
-				<Link
-					href="/#start"
+			<nav className="md:container mx-auto flex items-center justify-between p-4">
+				<NavLink
+					href="/"
 					className={
-						(roboto.className, "group justify-start flex items-center gap-1")
+						(roboto.className, "group justify-start flex items-center gap-1.5")
 					}
 				>
+					<figure className="aspect-square">
+						<Image src="/logo.png" alt="Be Beauty" width={75} height={75} />
+					</figure>
 					<div>
-						<h1 className="text-xl md:text-4xl group-hover:text-green-300 transition-colors duration-300">
+						<h1 className="text-xl md:text-4xl group-hover:text-main-300 transition-colors duration-300">
 							NATALIA
 						</h1>
-						<h2 className="text-sm md:text-md group-hover:text-green-300 transition-colors duration-300">
+						<h2 className="text-sm md:text-md group-hover:text-main-300 transition-colors duration-300">
 							SALON & BEAUTY SUPPLY
 						</h2>
 					</div>
-					<figure className="aspect-square">
-						<Image src="/logo.png" alt="Be Beaut logo" width={80} height={80} />
-					</figure>
-				</Link>
+				</NavLink>
 				<ul className="hidden md:flex justify-center">
 					<li>
-						<Link
-							href="/servicios"
-							className="p-4 hover:text-green-300 transition-colors"
-						>
-							Servicios
-						</Link>
+						<NavLink href="/servicios">Servicios</NavLink>
 					</li>
 					<li>
-						<Link
-							href="/productos"
-							className="p-4 hover:text-green-300 transition-colors"
-						>
-							Productos
-						</Link>
+						<NavLink href="/productos">Productos</NavLink>
 					</li>
 					<li>
-						<Link
-							href="/promociones"
-							className="p-4 hover:text-green-300 transition-colors"
-						>
-							Promociones
-						</Link>
+						<NavLink href="/promociones">Promociones</NavLink>
 					</li>
 				</ul>
 				{/* social media links */}
