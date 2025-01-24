@@ -5,6 +5,7 @@ import Link from "next/link";
 import { Roboto } from "next/font/google";
 import { FaWhatsapp, FaFacebook, FaInstagram } from "react-icons/fa";
 import { MotionHeader, slideInFromTop } from "@/components/motionUtils";
+import Image from "next/image";
 
 const roboto = Roboto({ weight: "900", subsets: ["latin"] });
 
@@ -30,14 +31,21 @@ export default function NavBar() {
 				{/* <Image src="/logo.png" alt="Be Beauty" width={100} height={100} /> */}
 				<Link
 					href="/#start"
-					className={(roboto.className, "group justify-start")}
+					className={
+						(roboto.className, "group justify-start flex items-center gap-1")
+					}
 				>
-					<h1 className="text-xl md:text-4xl group-hover:text-green-300 transition-colors duration-300">
-						NATALIA
-					</h1>
-					<h2 className="text-sm md:text-md group-hover:text-green-300 transition-colors duration-300">
-						SALON & BEAUTY SUPPLY
-					</h2>
+					<div>
+						<h1 className="text-xl md:text-4xl group-hover:text-green-300 transition-colors duration-300">
+							NATALIA
+						</h1>
+						<h2 className="text-sm md:text-md group-hover:text-green-300 transition-colors duration-300">
+							SALON & BEAUTY SUPPLY
+						</h2>
+					</div>
+					<figure className="aspect-square">
+						<Image src="/logo.png" alt="Be Beaut logo" width={80} height={80} />
+					</figure>
 				</Link>
 				<ul className="hidden md:flex justify-center">
 					<li>
