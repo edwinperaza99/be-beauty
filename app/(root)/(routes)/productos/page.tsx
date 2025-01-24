@@ -1,8 +1,17 @@
 "use client";
+import Marquee from "react-fast-marquee";
 
 import { useEffect, useState } from "react";
 import ProductCard from "@/components/ProductCard";
 import { Input } from "@/components/ui/input";
+import BrandsMarquee from "@/components/BrandsMarquee";
+import { fadeInOut, MotionH1 } from "@/components/motionUtils";
+
+interface Brand {
+	id: string;
+	name: string;
+	image_url?: string;
+}
 
 export interface Product {
 	id: string;
@@ -42,6 +51,11 @@ export default function Productos() {
 		}
 	}, [searchQuery, products]);
 
+	// Handle brand click to update search query
+	const handleBrandClick = (brandName: string) => {
+		setSearchQuery(brandName);
+	};
+
 	return (
 		<>
 			<main className="min-h-[calc(100dvh-80px)] bg-gray-100">
@@ -49,18 +63,25 @@ export default function Productos() {
 				<header className="relative h-[35vh] md:h-[40vh] bg-[url('https://images.unsplash.com/photo-1500917293891-ef795e70e1f6?q=80&w=2970&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')] bg-cover bg-center text-white flex items-center justify-center">
 					<div className="bg-black/50 absolute inset-0"></div>
 					<div className="relative z-10 text-center px-4">
-						<h1 className="text-3xl sm:text-4xl md:text-6xl font-bold mb-4">
+						<MotionH1
+							variants={fadeInOut}
+							initial="hidden"
+							animate="visible"
+							className="text-3xl sm:text-4xl md:text-6xl font-bold mb-4"
+						>
 							Nuestros Mejores Productos
-						</h1>
-						<p className="text-base sm:text-lg md:text-xl max-w-2xl mx-auto">
+						</MotionH1>
+						{/* <p className="text-base sm:text-lg md:text-xl max-w-2xl mx-auto">
 							Explora nuestra colección cuidadosamente seleccionada para
 							ofrecerte lo mejor en calidad y precio.
-						</p>
+						</p> */}
 					</div>
 				</header>
+				{/* Brands marquee  */}
+				<BrandsMarquee onBrandClick={handleBrandClick} />
 
 				{/* Products Section */}
-				<section className="py-10">
+				<section className="pb-10">
 					<h2 className="text-3xl font-semibold text-center mb-2">
 						Descubre Nuestros Productos
 					</h2>
