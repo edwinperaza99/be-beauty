@@ -46,6 +46,16 @@ export default function BrandsMarquee({ onBrandClick }: BrandMarqueeProps) {
 			name: "OPI",
 			image_url: "/brands/opi.svg",
 		},
+		{
+			id: "7",
+			name: "Wella",
+			image_url: "/brands/wella.svg",
+		},
+		{
+			id: "8",
+			name: "Tigi",
+			image_url: "/brands/tigi.svg",
+		},
 	];
 
 	return (
@@ -65,7 +75,7 @@ export default function BrandsMarquee({ onBrandClick }: BrandMarqueeProps) {
 					<Image
 						src={brand.image_url}
 						alt={brand.name}
-						className=" cursor-pointer"
+						className=" cursor-pointer hover:scale-125 transition-transform"
 						width={100}
 						height={80}
 						onClick={() => onBrandClick(brand.name)}

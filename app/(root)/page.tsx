@@ -17,7 +17,7 @@ export default function Home() {
 		<>
 			<main className="overflow-hidden" id="start">
 				<section
-					className="flex flex-col justify-center landing-bg gap-2 mx-auto my-0 min-h-dvh w-full relative"
+					className="flex flex-col justify-center landing-bg gap-2 mx-auto my-0 min-h-lvh w-full relative"
 					id="landing"
 				>
 					<div className="flex flex-col px-2 md:px-0 min-w-0 md:min-w-[800px] md:mx-auto">
