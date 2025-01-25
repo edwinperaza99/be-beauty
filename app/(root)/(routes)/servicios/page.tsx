@@ -46,7 +46,7 @@ export default function Servicios() {
 		{
 			title: "Manicure & Pedicure",
 			image:
-				"https://images.pexels.com/photos/887352/pexels-photo-887352.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+				"https://images.unsplash.com/photo-1632345031435-8727f6897d53?q=80&w=2970&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
 		},
 		{
 			title: "Cuidado del Cabello",
@@ -54,9 +54,9 @@ export default function Servicios() {
 				"https://images.pexels.com/photos/3065209/pexels-photo-3065209.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
 		},
 		{
-			title: "Tratamientos Faciales",
+			title: "Tingidos y Mechas",
 			image:
-				"https://images.pexels.com/photos/3762642/pexels-photo-3762642.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+				"https://images.unsplash.com/photo-1617391654484-2894196c2cc9?q=80&w=2970&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
 		},
 		{
 			title: "Maquillaje Profesional",
@@ -110,14 +110,14 @@ export default function Servicios() {
 				</section>
 
 				{/* Services Section */}
-				<section className="py-16 px-4 max-w-screen-2xl">
+				<section className="py-8 md:py-16 px-4 max-w-screen-2xl">
 					<MotionH2
 						variants={slideInFromBottom}
 						initial="hidden"
 						whileInView="visible"
 						viewport={{ once: true, amount: 0.5 }}
 						transition={{ duration: 0.5, delay: 0.2 }}
-						className="text-4xl font-bold text-center mb-12"
+						className="text-4xl font-bold text-center mb-6 md:mb-12"
 					>
 						¿Qué ofrecemos?
 					</MotionH2>
@@ -130,7 +130,7 @@ export default function Servicios() {
 				</section>
 
 				{/* Parallax Section */}
-				<section className="relative h-screen bg-fixed bg-[url('https://images.pexels.com/photos/1027092/pexels-photo-1027092.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2')] bg-cover bg-center flex items-center justify-center text-white">
+				<section className="relative min-h-screen bg-fixed bg-[url('https://images.pexels.com/photos/1027092/pexels-photo-1027092.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2')] bg-cover bg-center flex items-center justify-center text-white">
 					<MotionDiv
 						variants={fadeInOut}
 						initial="hidden"
