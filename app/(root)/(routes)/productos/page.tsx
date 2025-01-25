@@ -1,5 +1,4 @@
 "use client";
-import Marquee from "react-fast-marquee";
 
 import { useEffect, useState } from "react";
 import ProductCard from "@/components/ProductCard";

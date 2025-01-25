@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 import { Ellipsis, Pencil, Trash2, CirclePower } from "lucide-react";
 import toast, { Toaster } from "react-hot-toast";
 
-import { useSession, signOut } from "next-auth/react";
+import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 
 import {
@@ -135,15 +135,11 @@ export default function Dashboard() {
 		<>
 			<main className="mx-auto gap-4 mt-14">
 				<Toaster />
-				{/* add sign out button */}
-				{status === "authenticated" && (
-					<Button onClick={() => signOut()}>Cerrar Sesión</Button>
-				)}
 
 				<section className="container flex flex-col items-center" id="landing">
 					<details className="text-lg container">
 						<summary className="text-4xl font-bold text-center">
-							Panel de Administrador
+							Bienvenido {session?.user?.name}
 						</summary>
 						<p className="text-center">
 							En este panel de administrador podrás gestionar los productos,

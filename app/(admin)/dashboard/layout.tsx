@@ -5,6 +5,12 @@ import "@/app/globals.css";
 import SessionProvider from "@/components/SessionProvider";
 import { authorizeAccess } from "@/lib/auth";
 import { redirect } from "next/navigation";
+import {
+	SidebarInset,
+	SidebarProvider,
+	SidebarTrigger,
+} from "@/components/ui/sidebar";
+import { AppSidebar } from "@/components/app-sidebar";
 
 const inter = Inter({ subsets: ["latin"] });
 const libreBaskerville = Libre_Baskerville({
@@ -31,12 +37,20 @@ export default async function RootLayout({
 		redirect("/sign-in");
 	}
 	return (
-		<html lang="en" className={libreBaskerville.className}>
+		<html lang="en" className={`${libreBaskerville.className} dark`}>
 			<body className="">
 				<div className="min-h-screen">
 					<SessionProvider session={session}>
-						{children}
-						<SpeedInsights />
+						<SidebarProvider>
+							<AppSidebar />
+							<SidebarInset>
+								<header className="sticky top-0 left-0">
+									<SidebarTrigger />
+								</header>
+								{children}
+								<SpeedInsights />
+							</SidebarInset>
+						</SidebarProvider>
 					</SessionProvider>
 				</div>
 			</body>
