@@ -1,29 +1,21 @@
-export async function GET(req: Request): Promise<Response> {
+import { NextResponse } from "next/server";
+
+export async function GET() {
+	const FACEBOOK_PAGE_ACCESS_TOKEN =
+		process.env.FACEBOOK_PAGE_ACCESS_TOKEN ?? "";
+
 	try {
-		// Mock Facebook posts
-		const mockFacebookPosts = [
-			{
-				id: "1",
-				content: "¡Descubre nuestras nuevas promociones en Natalia Salon!",
-				image: "https://placehold.co/600x400",
-				postedAt: "2025-01-20",
-			},
-		];
+		const response = await fetch(
+			`https://graph.facebook.com/v22.0/388526188164301/feed?fields=message,full_picture,attachments&limit=12&access_token=${FACEBOOK_PAGE_ACCESS_TOKEN}`
+		);
+		const data = await response.json();
 
-		// Return the mock posts
-		return new Response(JSON.stringify(mockFacebookPosts), {
-			status: 200,
-			headers: { "Content-Type": "application/json" },
-		});
+		return NextResponse.json(data); // Ensure correct structure is returned
 	} catch (error) {
-		console.error("Failed to retrieve Facebook posts:", error);
-
-		return new Response(
-			JSON.stringify({ error: "Failed to retrieve Facebook posts" }),
-			{
-				status: 500,
-				headers: { "Content-Type": "application/json" },
-			}
+		console.error("Error fetching Facebook posts:", error);
+		return NextResponse.json(
+			{ error: "Failed to fetch posts" },
+			{ status: 500 }
 		);
 	}
 }

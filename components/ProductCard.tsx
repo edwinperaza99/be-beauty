@@ -9,7 +9,7 @@ export default function ProductCard({ product }: { product: Product }) {
 	const WhatsAppUrl = `https://api.whatsapp.com/send/?phone=50372951072&text=${WhatsAppMessage}&type=phone_number&app_absent=0`;
 
 	return (
-		<article className="bg-white shadow-md rounded-lg overflow-hidden hover:shadow-lg transition-shadow duration-300">
+		<article className="bg-white shadow-md rounded-lg overflow-hidden hover:shadow-lg duration-300 hover:scale-105 transition-transform">
 			<img
 				src={product.image_url || "https://placehold.co/600x400"}
 				alt={`${product.name} image`}
