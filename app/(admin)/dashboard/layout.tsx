@@ -11,6 +11,7 @@ import {
 	SidebarTrigger,
 } from "@/components/ui/sidebar";
 import { AppSidebar } from "@/components/app-sidebar";
+import { ThemeProvider } from "@/components/theme-provider";
 
 const inter = Inter({ subsets: ["latin"] });
 const libreBaskerville = Libre_Baskerville({
@@ -37,22 +38,33 @@ export default async function RootLayout({
 		redirect("/sign-in");
 	}
 	return (
-		<html lang="en" className={`${libreBaskerville.className} dark`}>
+		<html
+			lang="en"
+			className={`${libreBaskerville.className}`}
+			suppressHydrationWarning
+		>
 			<body className="">
-				<div className="min-h-screen">
-					<SessionProvider session={session}>
-						<SidebarProvider>
-							<AppSidebar />
-							<SidebarInset>
-								<header className="sticky top-0 left-0 h-11 flex items-center">
-									<SidebarTrigger className="p-4 m-2" />
-								</header>
-								{children}
-								<SpeedInsights />
-							</SidebarInset>
-						</SidebarProvider>
-					</SessionProvider>
-				</div>
+				<ThemeProvider
+					attribute="class"
+					defaultTheme="system"
+					enableSystem
+					disableTransitionOnChange
+				>
+					<div className="min-h-screen">
+						<SessionProvider session={session}>
+							<SidebarProvider>
+								<AppSidebar />
+								<SidebarInset>
+									<header className="sticky top-0 left-0 h-11 flex items-center">
+										<SidebarTrigger className="p-4 m-2" />
+									</header>
+									{children}
+									<SpeedInsights />
+								</SidebarInset>
+							</SidebarProvider>
+						</SessionProvider>
+					</div>
+				</ThemeProvider>
 			</body>
 		</html>
 	);

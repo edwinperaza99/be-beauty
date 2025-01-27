@@ -1,8 +1,10 @@
 "use client";
 
+import { ThemeToggle } from "@/components/toggle-theme-button";
 import {
 	Sidebar,
 	SidebarContent,
+	SidebarFooter,
 	SidebarGroup,
 	SidebarGroupContent,
 	SidebarGroupLabel,
@@ -106,6 +108,9 @@ export function AppSidebar() {
 					</SidebarGroupContent>
 				</SidebarGroup>
 			</SidebarContent>
+			<SidebarFooter>
+				<ThemeToggle />
+			</SidebarFooter>
 		</Sidebar>
 	);
 }

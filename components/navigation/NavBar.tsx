@@ -7,6 +7,7 @@ import { FaWhatsapp, FaFacebook, FaInstagram } from "react-icons/fa";
 import { MotionHeader, slideInFromTop } from "@/components/motionUtils";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
+import { useSession } from "next-auth/react";
 
 const roboto = Roboto({ weight: "900", subsets: ["latin"] });
 
@@ -40,6 +41,7 @@ const NavLink: React.FC<NavLinkProps> = ({
 
 export default function NavBar() {
 	const [isNavbarOpen, setNavbarOpen] = React.useState(false);
+	const { data: session, status } = useSession();
 
 	const toggleNavbar = () => {
 		setNavbarOpen(!isNavbarOpen);
@@ -81,6 +83,11 @@ export default function NavBar() {
 					<li>
 						<NavLink href="/promociones">Promociones</NavLink>
 					</li>
+					{session && (
+						<li>
+							<NavLink href="/dashboard">Admin</NavLink>
+						</li>
+					)}
 				</ul>
 				{/* social media links */}
 				<ul className="hidden md:flex gap-3 justify-end items-center">
@@ -172,6 +179,17 @@ export default function NavBar() {
 									Promociones
 								</Link>
 							</li>
+							{session && (
+								<li>
+									<Link
+										href="/dashboard"
+										className="p-4 hover:text-green-300 transition-colors"
+										onClick={toggleNavbar}
+									>
+										Admin
+									</Link>
+								</li>
+							)}
 						</ul>
 						<ul className="flex gap-2 justify-end mr-4 items-center">
 							<li>
