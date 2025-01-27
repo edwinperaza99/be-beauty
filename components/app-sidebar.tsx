@@ -6,6 +6,7 @@ import {
 	SidebarGroup,
 	SidebarGroupContent,
 	SidebarGroupLabel,
+	SidebarHeader,
 	SidebarMenu,
 	SidebarMenuButton,
 	SidebarMenuItem,
@@ -17,6 +18,7 @@ import {
 	BookOpen,
 	LogOut,
 	Settings,
+	Command,
 } from "lucide-react";
 import { signOut } from "next-auth/react";
 import Link from "next/link";
@@ -57,9 +59,28 @@ const items = [
 export function AppSidebar() {
 	return (
 		<Sidebar>
+			<SidebarHeader>
+				<SidebarMenu>
+					<SidebarMenuItem>
+						<SidebarMenuButton size="lg" asChild>
+							<Link href="/dashboard">
+								<div className="flex aspect-square size-8 items-center justify-center rounded-lg bg-sidebar-primary text-sidebar-primary-foreground">
+									<Command className="size-4" />
+								</div>
+								<div className="grid flex-1 text-left text-sm leading-tight">
+									<span className="truncate font-semibold">Natalia Salon</span>
+									<span className="truncate text-xs">
+										Panel de Administrador
+									</span>
+								</div>
+							</Link>
+						</SidebarMenuButton>
+					</SidebarMenuItem>
+				</SidebarMenu>
+			</SidebarHeader>
 			<SidebarContent>
 				<SidebarGroup>
-					<SidebarGroupLabel>Natalia Panel de Administrador</SidebarGroupLabel>
+					<SidebarGroupLabel>Opciones</SidebarGroupLabel>
 					<SidebarGroupContent>
 						<SidebarMenu>
 							{items.map((item) => (
@@ -67,10 +88,7 @@ export function AppSidebar() {
 									<SidebarMenuButton asChild>
 										{item.action ? (
 											// Render button for actions like logout
-											<button
-												onClick={item.action}
-												className="flex items-center gap-2 w-full text-left"
-											>
+											<button onClick={item.action}>
 												<item.icon />
 												<span>{item.title}</span>
 											</button>

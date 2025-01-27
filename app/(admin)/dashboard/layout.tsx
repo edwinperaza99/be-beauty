@@ -44,8 +44,8 @@ export default async function RootLayout({
 						<SidebarProvider>
 							<AppSidebar />
 							<SidebarInset>
-								<header className="sticky top-0 left-0">
-									<SidebarTrigger />
+								<header className="sticky top-0 left-0 h-11 flex items-center">
+									<SidebarTrigger className="p-4 m-2" />
 								</header>
 								{children}
 								<SpeedInsights />

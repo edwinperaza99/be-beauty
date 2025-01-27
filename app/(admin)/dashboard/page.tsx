@@ -1,6 +1,6 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
+import { Button, buttonVariants } from "@/components/ui/button";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { Ellipsis, Pencil, Trash2, CirclePower } from "lucide-react";
@@ -133,10 +133,10 @@ export default function Dashboard() {
 
 	return (
 		<>
-			<main className="mx-auto gap-4 mt-14">
+			<main className="gap-4 mt-14 px-2 max-w-screen-2xl mx-auto w-full">
 				<Toaster />
 
-				<section className="container flex flex-col items-center" id="landing">
+				<section className="flex flex-col items-center" id="landing">
 					<details className="text-lg container">
 						<summary className="text-4xl font-bold text-center">
 							Bienvenido {session?.user?.name}
@@ -147,29 +147,13 @@ export default function Dashboard() {
 						</p>
 					</details>
 				</section>
-				<section className="container flex justify-between py-6">
-					{/* <ul className="flex gap-2">
-						<li>
-							<Button>Todo</Button>
-						</li>
-						<li>
-							<Button>Cabello</Button>
-						</li>
-						<li>
-							<Button>Uñas</Button>
-						</li>
-						<li>
-							<Button>Caballero</Button>
-						</li>
-					</ul> */}
-					<Button>
-						<Link href="./dashboard/NewProduct">Agregar Producto</Link>
-					</Button>
-				</section>
+
 				{/* table goes here  */}
-				<section className="container-sm md:container">
+				<section className="mt-8">
 					{loading ? (
-						<p>Cargando productos...</p>
+						<div className="h-[50vh] flex items-center justify-center">
+							<p>Cargando productos...</p>
+						</div>
 					) : products.length > 0 ? (
 						<Table>
 							<TableCaption>Lista de todos tus productos</TableCaption>
@@ -276,6 +260,9 @@ export default function Dashboard() {
 																	</AlertDialogCancel>
 																	<AlertDialogAction
 																		onClick={() => deleteProduct(product.id)}
+																		className={buttonVariants({
+																			variant: "destructive",
+																		})}
 																	>
 																		Si, eliminar
 																	</AlertDialogAction>
