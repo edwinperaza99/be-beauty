@@ -73,11 +73,13 @@ export default function Promociones() {
 							Array(8)
 								.fill(null)
 								.map((_, index) => (
-									<article
-										className="aspect-[4/5] bg-white shadow-md rounded-md overflow-hidden hover:shadow-lg transition-shadow duration-300 group flex justify-center items-center"
-										key={index}
-									>
-										<Skeleton className="w-[90%] h-[90%]" />
+									<article key={index}>
+										<div className="aspect-[9/16] bg-white shadow-md rounded-md overflow-hidden hover:shadow-lg transition-shadow duration-300 flex justify-center items-center">
+											<Skeleton className="w-[90%] h-[90%] rounded-lg" />
+										</div>
+										<div className="h-20 bg-white shadow-md rounded-md overflow-hidden hover:shadow-lg transition-shadow duration-300 flex justify-center items-center">
+											<Skeleton className="w-[90%] h-[90%] rounded-lg" />
+										</div>
 									</article>
 								))
 						) : posts.length > 0 ? (
@@ -86,7 +88,7 @@ export default function Promociones() {
 									key={post.id}
 									className=" flex flex-col space-between bg-white shadow-md rounded-md overflow-hidden hover:shadow-lg transition-shadow duration-300 group relative"
 								>
-									<div className="relative aspect-[4/5] p-0 m-0">
+									<div className="relative aspect-[9/16] p-0 m-0">
 										{post.video_url ? (
 											<video
 												src={post.video_url}

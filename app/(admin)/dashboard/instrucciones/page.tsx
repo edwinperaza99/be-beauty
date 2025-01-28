@@ -15,8 +15,9 @@ export default function InstructionsPage() {
 					<h2 className="text-2xl font-semibold">Gestión de Productos</h2>
 					<p className="text-muted-foreground">
 						Puedes agregar, editar, activar/desactivar o eliminar productos.
-						Navega a la sección "Dashboard" en el menú lateral y utiliza las
-						acciones disponibles en la tabla para gestionar los productos.
+						Navega a la sección &quot;Dashboard&quot; en el menú lateral y
+						utiliza las acciones disponibles en la tabla para gestionar los
+						productos.
 					</p>
 					<p className="text-muted-foreground">
 						Los tres puntos revelaran las opciones para cada producto. Los
