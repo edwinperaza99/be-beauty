@@ -43,7 +43,7 @@ const items = [
 	},
 	{
 		title: "Instrucciones",
-		url: "#",
+		url: "dashboard/instrucciones",
 		icon: BookOpen,
 	},
 	{
