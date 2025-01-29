@@ -21,7 +21,7 @@ interface NavLinkProps {
 const NavLink: React.FC<NavLinkProps> = ({
 	href,
 	children,
-	className = "p-4 hover:text-main-300 transition-colors",
+	className = "p-4 hover:text-main-300 transition-colors text-xs lg:text-sm",
 	activeClassName = "text-main-300",
 }) => {
 	const pathname = usePathname();

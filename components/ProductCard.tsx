@@ -10,17 +10,19 @@ export default function ProductCard({ product }: { product: Product }) {
 
 	return (
 		<article className="bg-white shadow-md rounded-lg overflow-hidden hover:shadow-lg duration-300 hover:scale-105 transition-transform">
-			<img
-				src={product.image_url || "https://placehold.co/600x400"}
-				alt={`${product.name} image`}
-				className="w-full h-48 md:h-60 object-cover object-center"
-			/>
+			<div className="aspect-square">
+				<img
+					src={product.image_url || "https://placehold.co/600x400"}
+					alt={`${product.name} image`}
+					className="aspect-square object-cover object-center"
+				/>
+			</div>
 			<div className="p-4">
-				<h2 className="font-bold text-xl line-clamp-2">{product.name}</h2>
+				<h2 className="font-base font-bold line-clamp-2">{product.name}</h2>
 				<div className="mt-4 flex justify-between items-center">
 					<div className="flex-1">
 						{product.selling_price ? (
-							<p className="text-lg font-bold">${product.selling_price}</p>
+							<p className="text-base ">${product.selling_price}</p>
 						) : (
 							<div className="h-6" />
 						)}
